@@ -1,0 +1,10 @@
+[
+    {"name" : "Help Moving" , "taskImageURL" : "https://assets.taskrabbit.com/v3/assets/web/homepage/components/popular_projects/popular_6-69bcd25e57cfa799c8b613c096037e3850a228580f4c31bf0591c9b6d0b02ca9.jpg" , "avgPrice" : 100},
+    {"name" : "Assemble Furniture", "taskImageURL" : "https://assets.taskrabbit.com/v3/assets/web/homepage/components/popular_projects/popular_33-cc038c512a7be258011b8aad193c6d9eab70f6cbbca1659e3080758c6e2016f5.jpg" , "avgPrice" : 90 },
+    {"name" : "Cleaning", "taskImageURL" : "https://assets.taskrabbit.com/v3/assets/web/homepage/components/popular_projects/popular_59-d6f58e2ead45b6c911c1ff9247e2e0ffcda28fe06dbb7a47c0235d43206c4ae8.jpg" , "avgPrice" : 120},
+    {"name" : "Painting", "taskImageURL" : "https://res.cloudinary.com/taskrabbit-com/image/upload/w_928,f_auto,q_auto/jyhiakrpo1rfqcw4ggty" , "avgPrice" : 140},
+    {"name" : "Electrical Help", "taskImageURL" : "https://assets.taskrabbit.com/v3/assets/web/homepage/components/popular_projects/popular_405-254f77b44e4241a7e1ed7c32cbc9087c41bc144b5293468e4eafbb2cade47d90.jpg" , "avgPrice" : 180},
+    {"name" : "Plumbing", "taskImageURL" : "https://assets.taskrabbit.com/v3/assets/web/homepage/components/popular_projects/popular_69-76200d57d0b711c49e50f90254adc7ba494e5a54f3dd67340af5215c2165d624.jpg" , "avgPrice" : 170},
+    {"name" : "Delivery", "taskImageURL" : "https://res.cloudinary.com/taskrabbit-com/image/upload/w_464,f_auto,q_auto/sdx7lih98yec0ufvsjw1" , "avgPrice" : 60},
+    {"name" : "Shopping", "taskImageURL" : "https://assets.taskrabbit.com/v3/assets/web/homepage/components/popular_projects/popular_5-be8f43fa8a47915caa1838f86cec29469301a69c96fe3639bbba5233249b5e21.jpg" , "avgPrice" : 80}
+]
