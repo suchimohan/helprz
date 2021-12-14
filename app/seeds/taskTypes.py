@@ -24,5 +24,5 @@ def seed_taskTypes():
 
 
 def undo_taskTypes():
-    db.session.execute('TRUNCATE taskTypes RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE "taskTypes" RESTART IDENTITY CASCADE;')
     db.session.commit()
