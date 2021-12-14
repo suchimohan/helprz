@@ -1,19 +1,26 @@
 from app.models import db, User
+import json
 
+MOCK_USER_FP = "./app/seeds/mock_data/top_users.json"
+
+def load_mock_data():
+        """Loads mock users json data as python dict."""
+        with open(MOCK_USER_FP) as file:
+                users = json.load(file)
+        return users
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
-
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
-
+    """Seeds mock users"""
+    mock_data = load_mock_data()
+    for mock_user in mock_data:
+        new_user = User(
+            username = mock_user["username"],
+            email = mock_user["email"],
+            password = mock_user["password"],
+            profilePhotoURL = mock_user["profilePhotoURL"]
+        )
+        db.session.add(new_user)
     db.session.commit()
 
 
