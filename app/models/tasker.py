@@ -18,6 +18,7 @@ class Tasker(db.Model):
     user = db.relationship( "User", back_populates="tasker")
     taskType = db.relationship("TaskType", back_populates="taskers")
     city = db.relationship("City", back_populates="taskers")
+    tasks = db.relationship("Task", back_populates="tasker")
 
     def to_dict(self):
         return {
@@ -30,4 +31,4 @@ class Tasker(db.Model):
             'price': float(self.price),
             'created_at': self.created_at,
             'updated_at': self.updated_at
-      }
+        }

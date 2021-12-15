@@ -12,6 +12,7 @@ class TaskType(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
     taskers = db.relationship("Tasker", back_populates="taskType")
+    tasks = db.relationship("Task", back_populates="taskType")
 
     def to_dict(self):
         return {

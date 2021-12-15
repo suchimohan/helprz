@@ -15,6 +15,9 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
     tasker = db.relationship( "Tasker", uselist=False, back_populates="user")
+    tasks = db.relationship( "Task", back_populates="user")
+    
+
 
     @property
     def password(self):
