@@ -1,0 +1,50 @@
+.headerDiv{
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 50px
+}
+
+.navigation{
+    display: flex;
+    flex-direction: row;
+    margin-left: 100px;
+    margin-right: 100px;
+    /* padding-top: 10px; */
+    list-style: none;
+    gap:50%;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color:#438e29;
+}
+
+
+.nav2 {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.nav3 {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+}
+
+.helprz {
+    margin-top: 10px;
+    font-weight:bolder;
+    font-size:1.5em !important;
+}
+
+.icon{
+    width: 35px;
+    height: 45px ;
+    border-radius: 50%;
+}
