@@ -23,8 +23,8 @@ class Tasker(db.Model):
         return {
             'id': self.id,
             'user': self.user.to_dict(),
-            'taskTypesId': self.taskTypesId,
-            'citiesId': self.citiesId,
+            'taskType': self.taskType.to_dict(),
+            'city': self.city.to_dict(),
             'description': self.description,
             'experience': self.experience,
             'price': float(self.price),
