@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
 
     tasker = db.relationship( "Tasker", uselist=False, back_populates="user")
     tasks = db.relationship( "Task", back_populates="user")
-    
+
 
 
     @property
@@ -35,5 +35,5 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'profilePhotoURL': self.profilePhotoURL
+            'profilePhotoURL': self.profilePhotoURL,
         }

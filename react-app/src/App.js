@@ -3,11 +3,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+import Navigation from './components/Navigation';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import SplashPage from './components/SplashPage';
+import TaskerPage from './components/TaskerPage';
+import BecomeTaskerForm from './components/BecomeTaskerForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -26,7 +29,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <Navigation />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -40,9 +43,15 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+        <ProtectedRoute path='/taskers/:taskerId' exact={true} >
+          <TaskerPage />
         </ProtectedRoute>
+        <ProtectedRoute path='/new-tasker' exact={true}>
+          <BecomeTaskerForm />
+        </ProtectedRoute>
+        <Route path='/' exact={true} >
+          <SplashPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
