@@ -1,5 +1,6 @@
 import SplashImageDiv from "../SplashImageDiv";
 import {useSelector} from 'react-redux';
+import Footer from "../Footer";
 
 const SplashPage = () => {
 
@@ -17,9 +18,12 @@ const SplashPage = () => {
     }
 
     return (
-        <div>
-            {sessionLinks}
-        </div>
+        <>
+            <div>
+                {sessionLinks}
+            </div>
+            <Footer/>
+        </>
     )
 }
 

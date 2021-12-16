@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router";
 import { Redirect } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
-
+import './auth.css';
+import { NavLink } from 'react-router-dom';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -48,7 +49,7 @@ const LoginForm = () => {
   }
 
   return (
-    <div className='logInDiv'>
+    <div className='credentialDiv'>
       <div className="bg">
         <img className='bgImg' src="https://www.taskrabbit.com/v3/assets/_/_/_/_/_/_/_/apps/web/app/assets/images/web/hero_login_background-7ce1b584b1c95c1006eadc4616d27d88.jpg" alt="" />
       </div>
@@ -85,6 +86,12 @@ const LoginForm = () => {
                 Cancel
             </button>
             <button className="submit-button" onClick={handleDemoLogin} type="submit">Demo</button>
+            <div >
+              <span>Don't have an account </span>
+              <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                Sign Up
+              </NavLink>
+          </div>
           </div>
         </form>
       </div>
@@ -94,4 +101,3 @@ const LoginForm = () => {
 
 export default LoginForm;
 
-{/* </div> */}
