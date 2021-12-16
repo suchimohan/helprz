@@ -9,7 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage';
-
+import TaskerPage from './components/TaskerPage';
+import BecomeTaskerForm from './components/BecomeTaskerForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -42,6 +43,12 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <ProtectedRoute path='/taskers/:taskerId' exact={true} >
+          <TaskerPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/new-tasker' exact={true}>
+          <BecomeTaskerForm />
+        </ProtectedRoute>
         <Route path='/' exact={true} >
           <SplashPage />
         </Route>
@@ -51,4 +58,3 @@ function App() {
 }
 
 export default App;
-

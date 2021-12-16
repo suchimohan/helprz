@@ -1,7 +1,7 @@
 import './Search.css';
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {search} from '../../store/search';
+// import {search} from '../../store/search';
 import {useHistory} from "react-router";
 
 const Search = () => {
@@ -14,10 +14,10 @@ const Search = () => {
     const handleKeyPress = async (e) =>{
         if (e.charCode === 13) {
             e.preventDefault();
-            let resultFromSearch = await dispatch(search(searchKeyWord));
-            if (resultFromSearch) {
-                history.push(`/search/${searchKeyWord}`)
-            }
+            // let resultFromSearch = await dispatch(search(searchKeyWord));
+            // if (resultFromSearch) {
+            //     history.push(`/search/${searchKeyWord}`)
+            // }
         }
     }
 
@@ -33,7 +33,7 @@ const Search = () => {
                     onKeyPress={(e)=> handleKeyPress(e)}
                     placeholder="Search Tasks" />
                 <button className="search_button" >
-                <i class="fa fa-search" aria-hidden="true"></i>
+                <i className="fa fa-search" aria-hidden="true"></i>
                 Get Help
                 </button>
             </form>

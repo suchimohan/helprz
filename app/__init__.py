@@ -9,6 +9,8 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.tasker_routes import tasker_routes
+from .api.tasktype_routes import tasktype_routes
+from .api.cities_routes import cities_routes
 
 from .seeds import seed_commands
 
@@ -33,6 +35,8 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(tasker_routes, url_prefix='/api/taskers')
+app.register_blueprint(tasktype_routes,url_prefix='/api/tasktypes')
+app.register_blueprint(cities_routes,url_prefix='/api/cities')
 db.init_app(app)
 Migrate(app, db)
 

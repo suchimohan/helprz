@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { searchOneTaskerOnUserId } from '../store/tasker';
+import { useDispatch, useSelector } from 'react-redux';
 
 function User() {
+
   const [user, setUser] = useState({});
   const { userId }  = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!userId) {
@@ -16,14 +21,31 @@ function User() {
     })();
   }, [userId]);
 
+  useEffect(()=>{
+    dispatch(searchOneTaskerOnUserId(userId))
+  },[dispatch,userId])
+
+  const tasker = useSelector(state=>Object.values(state.taskers))
+  // console.log("////////////////////////", tasker)
+
+  let sessionLinks;
+  if(tasker[0]?.id) {
+    sessionLinks = (
+      <button>
+        <NavLink to={`/taskers/${tasker[0].id}`} exact={true} activeClassName='active'>
+          Tasker profile <i className="fa fa-gavel" aria-hidden="true"></i>
+        </NavLink>
+      </button>
+    )
+  }
+
   if (!user) {
     return null;
   }
-
   return (
     <ul>
       <li>
-        <strong>User Id</strong> {userId}
+        {sessionLinks}
       </li>
       <li>
         <strong>Username</strong> {user.username}

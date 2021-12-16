@@ -13,10 +13,18 @@ const Navigation = () => {
         sessionLinks = (
             <ul className="nav2">
                 <li>
-                    <button>Account</button>
+                    <button>
+                        <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
+                            Account
+                        </NavLink>
+                    </button>
                 </li>
                 <li>
-                    <button>Become A Tasker</button>
+                    <button>
+                        <NavLink to='/new-tasker' exact={true} activeClassName='active'>
+                            Become A Tasker
+                        </NavLink>
+                    </button>
                 </li>
                  <li>
                     <LogoutButton />
@@ -28,12 +36,12 @@ const Navigation = () => {
             <ul className="nav2">
               <li>
                 <NavLink to='/login' exact={true} activeClassName='active'>
-                  Login
+                    Login
                 </NavLink>
               </li>
               <li>
                 <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                      Sign Up
+                    Sign Up
                 </NavLink>
               </li>
             </ul>
