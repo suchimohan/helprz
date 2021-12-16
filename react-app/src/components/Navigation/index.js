@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import './Navigation.css';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import { searchOneTaskerOnUserId } from '../../store/tasker';
 
 const Navigation = () => {
 
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state=>state.session.user)
+    const tasker = useSelector(state=>Object.values(state.taskers))
+
+    useEffect(()=>{
+        if (!sessionUser) {
+            return;
+        }
+        dispatch(searchOneTaskerOnUserId(sessionUser?.id))
+      },[dispatch,sessionUser])
+
+    // console.log('-------------',tasker)
+
+    let taskerButton;
+      if(tasker[0] === 'Not Found') {
+        taskerButton = (
+            <button>
+                <NavLink to='/new-tasker' exact={true} activeClassName='active'>
+                    Become A Tasker
+                </NavLink>
+            </button>
+        )
+    }
 
     let sessionLinks;
     if(sessionUser) {
@@ -20,11 +43,7 @@ const Navigation = () => {
                     </button>
                 </li>
                 <li>
-                    <button>
-                        <NavLink to='/new-tasker' exact={true} activeClassName='active'>
-                            Become A Tasker
-                        </NavLink>
-                    </button>
+                    {taskerButton}
                 </li>
                  <li>
                     <LogoutButton />
@@ -47,6 +66,7 @@ const Navigation = () => {
             </ul>
         )
     }
+
 
   return (
     <div className="headerDiv">
