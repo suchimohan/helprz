@@ -1,7 +1,7 @@
 .headerDiv{
     margin-left: 100px;
     margin-right: 100px;
-    height: 50px
+    height: 50px;
 }
 
 .navigation{
@@ -9,9 +9,8 @@
     flex-direction: row;
     margin-left: 100px;
     margin-right: 100px;
-    /* padding-top: 10px; */
     list-style: none;
-    gap:50%;
+    gap:55%;
     justify-content: center;
 }
 
