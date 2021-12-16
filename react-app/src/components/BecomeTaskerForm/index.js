@@ -1,8 +1,10 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from "react-router";
 import './BecomeTaskerForm.css';
 import { addOneTasker } from "../../store/tasker";
+import {get_taskTypes} from "../../store/tasktypes"
+import {get_cities} from "../../store/cities"
 
 const BecomeTaskerForm = () => {
     const taskTypes = useSelector(state=>Object.values(state.taskTypes))
@@ -10,14 +12,20 @@ const BecomeTaskerForm = () => {
 
 
     // const [errors, setErrors] = useState([]);
-    const [taskName, setTaskName] = useState(taskTypes[0].id);
+    const [taskName, setTaskName] = useState(taskTypes[0]?.id);
     const [description, setDescription] = useState('')
     const [experience, setExperience] = useState('')
-    const [city, setCity] = useState(cities[0].id)
+    const [city, setCity] = useState(cities[0]?.id)
     const [price, setPrice] = useState('')
 
     const dispatch = useDispatch();
     const history = useHistory();
+
+
+    useEffect(()=>{
+        dispatch(get_taskTypes())
+        dispatch(get_cities())
+    },[dispatch])
 
     const handleCancel = () => {
         history.push('/')
@@ -90,7 +98,7 @@ const BecomeTaskerForm = () => {
                         type="number"
                         min = "1"
                         max = "500"
-                        Step = "0.01"
+                        step = "0.01"
                         />
                     </div>
                     <div className="button_div">
