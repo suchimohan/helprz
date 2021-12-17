@@ -12,13 +12,14 @@ gap: 30px
 
 .searchForm {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    gap: 20px
+    align-items: center;
 }
 
 .search_field{
     border-radius: 5px;
+    padding-left: 10px;
 }
 
 .search_button {
@@ -28,6 +29,10 @@ gap: 30px
     color: white;
     width: 100px;
 }
+
+p {
+    margin: 10px;
+  }
 
 .fa-search {
     padding-right:3px;
