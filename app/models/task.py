@@ -16,7 +16,10 @@ class Task(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
     user = db.relationship( "User", back_populates="tasks")
+
     tasker = db.relationship("Tasker",back_populates="tasks")
+
+
     taskType = db.relationship("TaskType", back_populates="tasks")
     city = db.relationship("City", back_populates="tasks")
 
@@ -29,6 +32,15 @@ class Task(db.Model):
             'taskType': self.taskType.to_dict(),
             'dateTime': self.dateTime,
             'taskDescription': self.taskDescription,
+            'duration': self.duration,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }
+
+    def to_dict_gettime(self):
+        return {
+            'id': self.id,
+            'dateTime': self.dateTime,
             'duration': self.duration,
             'created_at': self.created_at,
             'updated_at': self.updated_at

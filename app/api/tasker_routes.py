@@ -44,3 +44,13 @@ def search_tasker(userId):
     return result
   else:
     return {'message': "Not Found"}
+
+
+@tasker_routes.route('/city/<int:cityId>/taskType/<int:taskTypeId>', methods=['GET'])
+def available_taskers(cityId,taskTypeId):
+    searchResult = Tasker.query.filter(Tasker.citiesId == cityId).filter(Tasker.taskTypesId == taskTypeId).all()
+    if searchResult:
+        result = {r.id : r.to_dict_gettask() for r in searchResult}
+        return result
+    else:
+        return {'message': "Not Found"}

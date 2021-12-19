@@ -24,7 +24,7 @@ const SplashPage = () => {
     let sessionLinks;
     if(sessionUser) {
         sessionLinks = (
-            <h1>My home Page</h1>
+            <SplashImageDiv />
         )
     } else {
         sessionLinks = (

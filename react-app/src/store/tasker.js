@@ -1,5 +1,6 @@
 const ADD_TASKER = 'tasker/ADD_TASKER';
 const SEARCH_TASKER_ON_USERID = 'tasker/SEARCH_TASKER_ON_USERID'
+const SEARCH_AVAILABLE_TASKERS = 'taskers/SEARCH_AVAILABLE_TASKERS'
 const GET_ONE_TASKER = 'tasker/GET_ONETASKER'
 
 //action creater
@@ -10,6 +11,11 @@ const addTasker = payload => ({
 
 const searchTaskerOnUserId = payload => ({
     type: SEARCH_TASKER_ON_USERID,
+    payload
+})
+
+const searchAvailableTaskers = payload => ({
+    type: SEARCH_AVAILABLE_TASKERS,
     payload
 })
 
@@ -42,6 +48,15 @@ export const searchOneTaskerOnUserId = (userId) => async(dispatch) => {
     }
 }
 
+export const searchForTaskers = (cityId,taskTypeId) => async(dispatch) => {
+    const response = await fetch(`/api/taskers/city/${cityId}/taskType/${taskTypeId}`)
+    if (response.ok) {
+        const searchResults = await response.json();
+        dispatch(searchAvailableTaskers(searchResults))
+        return searchResults
+    }
+}
+
 export const getOneTaskerByID = (taskerId) => async(dispatch) => {
     const response = await fetch(`/api/taskers/${taskerId}`)
     if (response.ok) {
@@ -59,6 +74,10 @@ const taskerReducer = (state={}, action) => {
             return newState
         }
         case SEARCH_TASKER_ON_USERID: {
+            const newState = action.payload
+            return newState
+        }
+        case SEARCH_AVAILABLE_TASKERS: {
             const newState = action.payload
             return newState
         }

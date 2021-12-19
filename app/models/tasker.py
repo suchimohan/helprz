@@ -18,6 +18,8 @@ class Tasker(db.Model):
     user = db.relationship( "User", back_populates="tasker")
     taskType = db.relationship("TaskType", back_populates="taskers")
     city = db.relationship("City", back_populates="taskers")
+
+
     tasks = db.relationship("Task", back_populates="tasker")
 
     def to_dict(self):
@@ -29,6 +31,20 @@ class Tasker(db.Model):
             'description': self.description,
             'experience': self.experience,
             'price': float(self.price),
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }
+
+    def to_dict_gettask(self):
+        return {
+            'id': self.id,
+            'user': self.user.to_dict(),
+            'taskType': self.taskType.to_dict(),
+            'city': self.city.to_dict(),
+            'description': self.description,
+            'experience': self.experience,
+            'price': float(self.price),
+            'tasks' : {t.id : t.to_dict_gettime() for t in self.tasks},
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
