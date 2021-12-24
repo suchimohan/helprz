@@ -2,6 +2,7 @@ from flask import Blueprint, request
 from app.models import db, Tasker
 from flask_login import current_user
 from app.forms import NewTaskerForm
+from app.forms import EditTaskerForm
 
 tasker_routes = Blueprint('taskers', __name__)
 
@@ -19,7 +20,7 @@ def add_new_tasker():
     currentUser = current_user.to_dict()
     form = NewTaskerForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("///////////////////////////////////////", form.data)
+    # print("///////////////////////////////////////", form.data)
     if form.validate_on_submit():
         tasker = Tasker(
             userId = currentUser['id'],
@@ -54,3 +55,21 @@ def available_taskers(cityId,taskTypeId):
         return result
     else:
         return {'message': "Not Found"}
+
+
+@tasker_routes.route('/${taskerId}/edit', methods=['PUT'])
+def update_tasker(taskerId):
+  form = EditTaskerForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  tasker = Tasker.query.get(taskerId)
+  if form.validate_on_submit():
+    tasker.taskTypesId = form.data['taskName'],
+    tasker.citiesId = form.data['city']
+    tasker.description = form.data['description'],
+    tasker.experience = form.data['experience']
+    tasker.price = form.data['price'],
+
+    db.session.commit()
+    return tasker.to_dict()
+  else:
+    return {'message': "Bad Data"}

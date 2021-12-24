@@ -2,6 +2,7 @@ const ADD_TASKER = 'tasker/ADD_TASKER';
 const SEARCH_TASKER_ON_USERID = 'tasker/SEARCH_TASKER_ON_USERID'
 const SEARCH_AVAILABLE_TASKERS = 'taskers/SEARCH_AVAILABLE_TASKERS'
 const GET_ONE_TASKER = 'tasker/GET_ONETASKER'
+const EDIT_TASKER = 'tasker/EDIT_TASKER'
 
 //action creater
 const addTasker = payload => ({
@@ -21,6 +22,11 @@ const searchAvailableTaskers = payload => ({
 
 const getOneTasker = payload => ({
     type: GET_ONE_TASKER,
+    payload
+})
+
+const editOneTasker = payload => ({
+    type: EDIT_TASKER,
     payload
 })
 
@@ -65,6 +71,20 @@ export const getOneTaskerByID = (taskerId) => async(dispatch) => {
         return tasker
     }
 }
+
+export const editTasker = (payload,taskerId) => async (dispatch) => {
+    const response = await fetch(`/api/taskers/${taskerId}/edit`,{
+        method: "PUT",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(payload)
+    })
+    if(response.ok) {
+        const editedTasker = await response.json();
+        dispatch(editOneTasker(editedTasker))
+        return editedTasker
+    }
+}
+
 //reducer
 
 const taskerReducer = (state={}, action) => {
@@ -82,6 +102,11 @@ const taskerReducer = (state={}, action) => {
             return newState
         }
         case GET_ONE_TASKER: {
+            const newState = {}
+            newState[action.payload.id] = action.payload
+            return newState
+        }
+        case EDIT_TASKER: {
             const newState = {}
             newState[action.payload.id] = action.payload
             return newState

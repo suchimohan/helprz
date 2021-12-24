@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneTaskerByID } from '../../store/tasker';
+import { NavLink } from 'react-router-dom';
 
 
 function TaskerPage() {
@@ -21,7 +22,9 @@ function TaskerPage() {
         sessionLinks = (
             <div>
                 <button>
-                    Edit Tasker Profile Details
+                    <NavLink to={`/taskers/${taskerId}/edit`} exact={true} activeClassName='active'>
+                        Edit Tasker Profile Details
+                    </NavLink>
                 </button>
                 <button>
                     Delete Tasker Profile

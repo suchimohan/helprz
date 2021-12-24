@@ -3,7 +3,7 @@ from wtforms import StringField,TextAreaField, DecimalField, IntegerField
 from wtforms.validators import DataRequired
 
 
-class NewTaskerForm(FlaskForm):
+class EditTaskerForm(FlaskForm):
     taskName = IntegerField('taskName',validators=[DataRequired()])
     description = TextAreaField('description',validators=[DataRequired()])
     experience = IntegerField('experience',validators=[DataRequired()])
