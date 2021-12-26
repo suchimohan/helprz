@@ -57,8 +57,9 @@ def available_taskers(cityId,taskTypeId):
         return {'message': "Not Found"}
 
 
-@tasker_routes.route('/${taskerId}/edit', methods=['PUT'])
+@tasker_routes.route('/<int:taskerId>/edit', methods=['PUT'])
 def update_tasker(taskerId):
+  # print('////////////////hitting this line of code')
   form = EditTaskerForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   tasker = Tasker.query.get(taskerId)

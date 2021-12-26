@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from "react-router";
 import {useParams} from 'react-router-dom'
 import './EditTaskerDetailsForm.css';
-// import { addOneTasker } from "../../store/tasker";
+import { editTasker } from "../../store/tasker";
 import {get_taskTypes} from "../../store/tasktypes"
 import {get_cities} from "../../store/cities"
 import { getOneTaskerByID } from '../../store/tasker';
@@ -15,11 +15,11 @@ const EditTaskerDetailsForm = () => {
 
     const { taskerId }  = useParams();
     // const [errors, setErrors] = useState([]);
-    const [taskName, setTaskName] = useState(tasker[0].taskType.id);
-    const [description, setDescription] = useState(tasker[0].description)
-    const [experience, setExperience] = useState(tasker[0].experience)
-    const [city, setCity] = useState(tasker[0].city.id)
-    const [price, setPrice] = useState(tasker[0].price)
+    const [taskName, setTaskName] = useState(tasker[0]?.taskType.id);
+    const [description, setDescription] = useState(tasker[0]?.description)
+    const [experience, setExperience] = useState(tasker[0]?.experience)
+    const [city, setCity] = useState(tasker[0]?.city.id)
+    const [price, setPrice] = useState(tasker[0]?.price)
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -44,10 +44,11 @@ const EditTaskerDetailsForm = () => {
             city,
             price,
         }
+    // console.log("the new payload is",payload)
     let editedTasker = await dispatch(editTasker(payload,taskerId));
     if (editedTasker) {
     history.push(`/taskers/${taskerId}`);
-    }
+    }}
 
 
     if (!tasker[0]) {
