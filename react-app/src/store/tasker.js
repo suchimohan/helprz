@@ -54,8 +54,8 @@ export const searchOneTaskerOnUserId = (userId) => async(dispatch) => {
     }
 }
 
-export const searchForTaskers = (cityId,taskTypeId) => async(dispatch) => {
-    const response = await fetch(`/api/taskers/city/${cityId}/taskType/${taskTypeId}`)
+export const searchForTaskers = (cityId,taskTypeId,date,time) => async(dispatch) => {
+    const response = await fetch(`/api/taskers/filter?cityId=${cityId}&taskTypeId=${taskTypeId}&date=${date}&time=${time}`)
     if (response.ok) {
         const searchResults = await response.json();
         dispatch(searchAvailableTaskers(searchResults))

@@ -1,8 +1,10 @@
 from flask import Blueprint, request
-from app.models import db, Tasker
+from app.models import db, Tasker, Task
 from flask_login import current_user
 from app.forms import NewTaskerForm
 from app.forms import EditTaskerForm
+from datetime import date, time, datetime
+from sqlalchemy import and_
 
 tasker_routes = Blueprint('taskers', __name__)
 
@@ -47,14 +49,36 @@ def search_tasker(userId):
     return {'message': "Not Found"}
 
 
-@tasker_routes.route('/city/<int:cityId>/taskType/<int:taskTypeId>', methods=['GET'])
-def available_taskers(cityId,taskTypeId):
-    searchResult = Tasker.query.filter(Tasker.citiesId == cityId).filter(Tasker.taskTypesId == taskTypeId).all()
-    if searchResult:
-        result = {r.id : r.to_dict_gettask() for r in searchResult}
-        return result
-    else:
-        return {'message': "Not Found"}
+# @tasker_routes.route('/city/<int:cityId>/taskType/<int:taskTypeId>', methods=['GET'])
+# def available_taskers(cityId,taskTypeId):
+#     searchResult = Tasker.query.filter(Tasker.citiesId == cityId).filter(Tasker.taskTypesId == taskTypeId).all()
+#     if searchResult:
+#         result = {r.id : r.to_dict_gettask() for r in searchResult}
+#         return result
+#     else:
+#         return {'message': "Not Found"}
+
+@tasker_routes.route('/filter', methods=['GET'])
+def filtered_taskers():
+  cityId = request.args.get('cityId')
+  taskTypeId = request.args.get('taskTypeId')
+  task_date = date.fromisoformat(request.args.get('date'))
+  task_time = time.fromisoformat(request.args.get('time'))
+  task_date_time = datetime.combine(task_date,task_time)
+  ''' SQL Query to filter taskers///
+  select users.username, taskers.description, tasks."dateTime" from taskers
+  left join tasks on tasks."taskerId" = taskers.id and tasks."dateTime" = '2021-12-29 8:00:00'
+  join users on users.id = taskers."userId"
+  where tasks.id is null
+  and taskers."taskTypesId" = 1
+  and taskers."citiesId" = 1'''
+  searchResult = Tasker.query.join(Task,and_(Task.taskerId == Tasker.id , Task.dateTime == task_date_time),isouter=True).filter(and_(Tasker.citiesId == cityId , Tasker.taskTypesId == taskTypeId,Task.id == None)).all()
+  # searchResult = Tasker.query.filter(Tasker.citiesId == cityId).filter(Tasker.taskTypesId == taskTypeId).all()
+  if searchResult:
+    result = {r.id : r.to_dict_gettask() for r in searchResult}
+    return result
+  else:
+    return {'message': "Not Found"}
 
 
 @tasker_routes.route('/<int:taskerId>/edit', methods=['PUT'])

@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom';
 import {useHistory} from "react-router";
 import {get_cities} from "../../store/cities"
 import {get_taskTypes} from "../../store/tasktypes"
+import { addOneTask } from "../../store/task";
 import { searchForTaskers } from "../../store/tasker";
 import ms from 'ms';
 import moment from 'moment';
@@ -18,13 +19,13 @@ const TaskDetailsForm = () => {
 
     const durationData = [
                             {"id" : 1, "displayValue" : "Small - Est. 1 hr" , "dbStoreValue" : "1 hr"},
-                            {"id" : 2, "displayValue" : "Medium - Est. 2-3 hrs" , "dbStoreValue" : "2-3 hrs"},
-                            {"id" : 3, "displayValue" : "Large - Est. 4+ hrs" , "dbStoreValue" : "4+ hrs"}
+                            {"id" : 2, "displayValue" : "Medium - Est. 2 hrs" , "dbStoreValue" : "2 hrs"},
+                            {"id" : 3, "displayValue" : "Large - Est. 3 hrs" , "dbStoreValue" : "3 hrs"}
                         ]
 
     const today = new Date()
 
-    const [time,setTime] = useState()
+    const [time,setTime] = useState("08:00:00")
     const [date,setDate] = useState(moment(today).format('YYYY-MM-DD'))
 
     const minday = ms('90d')
@@ -33,7 +34,7 @@ const TaskDetailsForm = () => {
 
 
     const [city, setCity] = useState(cities[0]?.id)
-    const [duration, setDuration] = useState(durationData[0].dbStoreValue)
+    const [duration, setDuration] = useState(durationData[1].dbStoreValue)
     const [selectedTaskerId,setSelectedTaskerId] = useState()
     const [taskDescription, setTaskDescription] = useState('')
     const [formPhase,setFormPhase] = useState(1)
@@ -70,18 +71,18 @@ const TaskDetailsForm = () => {
         return oneTasker.user.username
     }
 
-    const ChoosenTime = () => {
-        if(time === "8:00" || time === "10:00"){
-            return "am"
-        }
-        else {
-            return "pm"
-        }
-    }
+    // const ChoosenTime = () => {
+    //     if(time === "8:00" || time === "10:00"){
+    //         return "am"
+    //     }
+    //     else {
+    //         return "pm"
+    //     }
+    // }
 
     const handleSubmitPhase1 = async(e) => {
         e.preventDefault();
-        let taskerData = await dispatch(searchForTaskers(city,taskTypeId));
+        let taskerData = await dispatch(searchForTaskers(city,taskTypeId,date,time));
         // console.log("the tasker details",taskerData)
         if (taskerData) {
             let data = Object.values(taskerData)
@@ -106,7 +107,11 @@ const TaskDetailsForm = () => {
         payload["taskerId"] = selectedTaskerId
         payload["date"] = date
         payload["time"] = time
-        console.log('handle duration submit payload',payload)
+
+        let createdTask = await dispatch(addOneTask(payload))
+        if (createdTask) {
+            history.push('/')
+        }
     }
 
     return (
@@ -153,12 +158,12 @@ const TaskDetailsForm = () => {
                     <div>
                         <label>choose Time</label>
                         <select value={time} onChange={(e) => setTime(e.target.value)}>
-                            <option value="08:00">8:00 - 10:00 am</option>
-                            <option value="10:00">10:00 - 12:00 pm</option>
-                            <option value="12:00">12:00 - 2:00 pm</option>
-                            <option value="14:00">2:00 - 4:00 pm</option>
-                            <option value="16:00">4:00 - 6:00 pm</option>
-                            <option value="18:00">6:00 - 8:00 pm</option>
+                            <option value="08:00:00">8:00 - 10:00 am</option>
+                            <option value="10:00:00">10:00 - 12:00 pm</option>
+                            <option value="12:00:00">12:00 - 2:00 pm</option>
+                            <option value="14:00:00">2:00 - 4:00 pm</option>
+                            <option value="16:00:00">4:00 - 6:00 pm</option>
+                            <option value="18:00:00">6:00 - 8:00 pm</option>
                         </select>
                     </div>
                     <div>If you need two or more Taskers, please post additional tasks for each Tasker needed.</div>
@@ -190,7 +195,7 @@ const TaskDetailsForm = () => {
                         <div>Choosen Task Type:{ChoosenTaskType()} </div>
                         <div>Task Description:{taskDescription}</div>
                         <div>Date: {date}</div>
-                        <div>Start Time: {time} {ChoosenTime()}</div>
+                        <div>Start Time: {time}</div>
                         <div>Choosen Tasker Name:{ChoosenTasker()}</div>
                         <div className="button_div">
                             <button className='submit-button' type='submit'>
