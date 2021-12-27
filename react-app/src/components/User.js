@@ -56,6 +56,13 @@ function User() {
       <li>
         <img src={user?.profilePhotoURL} alt="ProfilePic" />
       </li>
+      <li>
+        <button>
+        <NavLink to={`/users/${userId}/tasks`} exact={true} activeClassName='active'>
+          My Tasks
+        </NavLink>
+        </button>
+      </li>
     </ul>
   );
 }

@@ -13,6 +13,7 @@ import TaskerPage from './components/TaskerPage';
 import BecomeTaskerForm from './components/BecomeTaskerForm';
 import TaskDetailsForm from './components/TaskDetailsForm';
 import EditTaskerDetailsForm from './components/EditTaskerDetailsForm';
+import MyTasks from './components/MyTasks'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,6 +45,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/tasks' exact={true} >
+          <MyTasks />
         </ProtectedRoute>
         <ProtectedRoute path='/taskers/:taskerId' exact={true} >
           <TaskerPage />

@@ -26,3 +26,14 @@ def add_new_task():
         return task.to_dict()
     else:
         return {'message' : 'Bad Data'}
+
+
+
+@task_routes.route('/<int:userId>',methods=["GET"])
+def get_tasks(userId):
+    result = Task.query.filter(Task.requestUserId == userId).all()
+    if result:
+        tasks = {t.id : t.to_dict() for t in result}
+        return tasks
+    else:
+        return {'message': "Not Found"}
