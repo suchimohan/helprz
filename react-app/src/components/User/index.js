@@ -31,7 +31,7 @@ function User() {
   let sessionLinks;
   if(tasker[0]?.id) {
     sessionLinks = (
-      <button>
+      <button className='userButton'>
         <NavLink to={`/taskers/${tasker[0].id}`} exact={true} activeClassName='active'>
           Tasker profile <i className="fa fa-gavel" aria-hidden="true"></i>
         </NavLink>
@@ -44,23 +44,27 @@ function User() {
   }
   return (
     <div className='userPlacement'>
-      <div>Your Account</div>
-      <div>
+      <div className='accountTag'>Your Account</div>
+      <div className='userButton_div'>
         {sessionLinks}
-        <button>
-        <NavLink to={`/users/${userId}/tasks`} exact={true} activeClassName='active'>
-          My Tasks
-        </NavLink>
+        <button className='userButton'>
+          <NavLink to={`/users/${userId}/tasks`} exact={true} activeClassName='active'>
+            My Tasks
+          </NavLink>
         </button>
       </div>
-      <div>
-        <div>
-          <img src={user?.profilePhotoURL} alt="ProfilePic" />
+      <div className='userDetails'>
+        <div className='userImage_div'>
+          <img className='userImage' src={user?.profilePhotoURL} alt="ProfilePic" />
         </div>
-        <div>
-        <strong>Username</strong> {user.username}
-        <strong>Email</strong> {user.email}
-        </div>
+        <div className='userName_div'>
+          <div>
+            <strong>Username: </strong>{user.username}
+          </div>
+          <div>
+            <strong>Email: </strong>{user.email}
+          </div>
+          </div>
         </div>
     </div>
   );

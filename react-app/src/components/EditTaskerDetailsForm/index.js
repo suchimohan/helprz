@@ -56,7 +56,7 @@ const EditTaskerDetailsForm = () => {
     } else {
         return (
             <div className='edit-tasker-Div'>
-                <h2>Edit your Tasker profile details</h2>
+                <h3>Edit your Tasker profile details</h3>
                     <form onSubmit={handleSubmit} className='edit-tasker'>
                         <div>
                             <label>Choose A Task Category</label>
@@ -109,11 +109,11 @@ const EditTaskerDetailsForm = () => {
                             step = "0.01"
                             />
                         </div>
-                        <div className="button_div">
-                            <button className='submit-button' type='submit'>
+                        <div className="edit_button_div">
+                            <button className='edit_submit-button' type='submit'>
                                 Submit
                             </button>
-                            <button className='submit-button' type='submit' onClick={()=>{handleCancel()}}>
+                            <button className='edit_submit-button' type='submit' onClick={()=>{handleCancel()}}>
                                 Cancel
                             </button>
                         </div>

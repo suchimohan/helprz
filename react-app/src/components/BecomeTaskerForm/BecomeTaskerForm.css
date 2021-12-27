@@ -31,10 +31,11 @@
   background-color: #438e29;
   font-size: large;
   border-radius: 3px;
+  border: none;
 }
 
 
-input {
+.add-tasker input {
     height: 40px;
     width: 350px;
     box-sizing:border-box;
@@ -42,7 +43,7 @@ input {
     padding: 1em;
 }
 
-label {
+.add-tasker label {
     display: inline-block;
     width: 400px;
     text-align: left;
@@ -50,7 +51,7 @@ label {
     font-size:20px;
 }
 
-textarea{
+.add-tasker textarea{
     height: 100px;
     width: 350px;
     box-sizing:border-box;

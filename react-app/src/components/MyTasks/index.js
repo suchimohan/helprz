@@ -14,7 +14,7 @@ function MyTasks() {
         dispatch(getTasksOnUserID(userId))
     },[dispatch,userId])
 
-    if (!tasks.length){
+    if (!tasks.length || tasks[0] === "Not Found"){
         return (
             <h1>No tasks found</h1>
         )

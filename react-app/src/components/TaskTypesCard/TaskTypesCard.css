@@ -10,12 +10,10 @@
   }
 
 .taskTypePrice {
-    font-weight: bold;
     color: black !important;
 }
 
 .taskTypeName {
-    font-weight: bold;
     padding-bottom: 5px;
     justify-content: center;
     color: black !important;
