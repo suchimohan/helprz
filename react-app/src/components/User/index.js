@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { searchOneTaskerOnUserId } from '../store/tasker';
+import { searchOneTaskerOnUserId } from '../../store/tasker';
 import { useDispatch, useSelector } from 'react-redux';
+import './User.css';
 
 function User() {
 
@@ -26,7 +27,6 @@ function User() {
   },[dispatch,userId])
 
   const tasker = useSelector(state=>Object.values(state.taskers))
-  // console.log("////////////////////////", tasker)
 
   let sessionLinks;
   if(tasker[0]?.id) {
@@ -43,27 +43,26 @@ function User() {
     return null;
   }
   return (
-    <ul>
-      <li>
+    <div className='userPlacement'>
+      <div>Your Account</div>
+      <div>
         {sessionLinks}
-      </li>
-      <li>
-        <strong>Username</strong> {user.username}
-      </li>
-      <li>
-        <strong>Email</strong> {user.email}
-      </li>
-      <li>
-        <img src={user?.profilePhotoURL} alt="ProfilePic" />
-      </li>
-      <li>
         <button>
         <NavLink to={`/users/${userId}/tasks`} exact={true} activeClassName='active'>
           My Tasks
         </NavLink>
         </button>
-      </li>
-    </ul>
+      </div>
+      <div>
+        <div>
+          <img src={user?.profilePhotoURL} alt="ProfilePic" />
+        </div>
+        <div>
+        <strong>Username</strong> {user.username}
+        <strong>Email</strong> {user.email}
+        </div>
+        </div>
+    </div>
   );
 }
 export default User;

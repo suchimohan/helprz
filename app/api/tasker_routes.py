@@ -89,9 +89,9 @@ def update_tasker(taskerId):
   tasker = Tasker.query.get(taskerId)
   if form.validate_on_submit():
     tasker.taskTypesId = form.data['taskName'],
-    tasker.citiesId = form.data['city']
+    tasker.citiesId = form.data['city'],
     tasker.description = form.data['description'],
-    tasker.experience = form.data['experience']
+    tasker.experience = form.data['experience'],
     tasker.price = form.data['price'],
 
     db.session.commit()

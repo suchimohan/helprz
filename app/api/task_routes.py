@@ -3,6 +3,7 @@ from app.models import db, Task
 from flask_login import current_user
 from app.forms import AddTaskForm
 from datetime import datetime
+from app.forms import EditTaskForm
 
 
 task_routes = Blueprint('tasks', __name__)
@@ -37,3 +38,17 @@ def get_tasks(userId):
         return tasks
     else:
         return {'message': "Not Found"}
+
+
+@task_routes.route('/<int:taskId>/edit',methods=["PUT"])
+def updated_task(taskId):
+    form = EditTaskForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    task = Task.query.get(taskId)
+    if form.validate_on_submit():
+        task.taskDescription = form.data['editedTaskDescription']
+
+        db.session.commit()
+        return task.to_dict()
+    else:
+        return {'message': "Bad Data"}

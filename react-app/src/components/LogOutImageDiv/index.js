@@ -8,7 +8,7 @@ const LogOutImageDiv = () => {
                 <img className="logOutImg" src="https://assets.taskrabbit.com/v3/assets/homepage/hero-img-desktop.jpg" alt=""/>
             </div>
             <div className="logOut_search">
-                <button>
+                <button className='searchTaskButton'>
                     <NavLink to='/login' exact={true} activeClassName='active'>
                         Start Searching For Tasks
                     </NavLink>

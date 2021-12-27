@@ -12,7 +12,7 @@ function MyTasks() {
 
     useEffect(()=>{
         dispatch(getTasksOnUserID(userId))
-    },[dispatch])
+    },[dispatch,userId])
 
     if (!tasks.length){
         return (
@@ -29,7 +29,12 @@ function MyTasks() {
                         <li>Tasker Name: {taskInfo.tasker.user.username}</li>
                         <li>Task Description: {taskInfo.taskDescription}</li>
                         <li>Task Date and Time: {taskInfo.dateTime}</li>
-                        <li><button>Edit Booking</button></li>
+                        <li><button>
+                                <NavLink to={`/users/${userId}/tasks/${taskInfo.id}/edit`} exact={true} activeClassName='active'>
+                                    Edit Booking
+                                </NavLink>
+                            </button>
+                        </li>
                         <li><button>Cancel Booking</button></li>
                     </ul>
                 )

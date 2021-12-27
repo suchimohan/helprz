@@ -1,0 +1,37 @@
+.task_type_card_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 0 20px 20px 0;
+    padding: 10px;
+  }
+
+.taskTypePrice {
+    font-weight: bold;
+    color: black !important;
+}
+
+.taskTypeName {
+    font-weight: bold;
+    padding-bottom: 5px;
+    justify-content: center;
+    color: black !important;
+}
+
+.taskTypeImage {
+    width: 150px;
+    height: 100px;
+    margin: 0 0 10px 0;
+}
+
+.taskTypeCard a {
+  text-decoration: none !important;
+}
+
+.taskTypeCard:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}

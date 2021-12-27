@@ -46,11 +46,13 @@
 }
 
 .submit-button{
-  padding: 0 5px 0 5px;
-  height: 30px;
-  width: 200px;
-  font-size: large;
-
+    color: white;
+    padding: 0 5px 0 5px;
+    height: 30px;
+    width: 200px;
+    background-color: #438e29;
+    font-size: large;
+    border-radius: 3px;
 }
 
 input {

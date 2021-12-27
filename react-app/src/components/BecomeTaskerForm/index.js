@@ -47,8 +47,8 @@ const BecomeTaskerForm = () => {
 
     return (
         <div className='add-tasker-Div'>
-            <h2>Find local jobs that fit your skills. With Helprz, you have the freedom and support to be your own boss.</h2>
-            <h2>Let's get started, tell us about yourself</h2>
+            <h3>Find local jobs that fit your skills. With Helprz, you have the freedom and support to be your own boss.</h3>
+            <h3>Let's get started, tell us about yourself</h3>
                 <form onSubmit={handleSubmit} className='add-tasker'>
                     <div>
                         <label>Choose A Task Category</label>

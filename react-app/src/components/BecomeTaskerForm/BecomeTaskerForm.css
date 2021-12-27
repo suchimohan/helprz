@@ -1,0 +1,65 @@
+.add-tasker-Div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin : 40px;
+}
+
+.add-tasker{
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.button_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.submit-button{
+  color: white;
+  padding: 0 5px 0 5px;
+  height: 30px;
+  width: 200px;
+  background-color: #438e29;
+  font-size: large;
+  border-radius: 3px;
+}
+
+
+input {
+    height: 40px;
+    width: 350px;
+    box-sizing:border-box;
+    border: 1px solid #999;
+    padding: 1em;
+}
+
+label {
+    display: inline-block;
+    width: 400px;
+    text-align: left;
+    font-weight: bold;
+    font-size:20px;
+}
+
+textarea{
+    height: 100px;
+    width: 350px;
+    box-sizing:border-box;
+    border: 1px solid #999;
+    padding: 1em;
+}
+
+.description_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
