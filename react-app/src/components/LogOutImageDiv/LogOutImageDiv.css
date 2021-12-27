@@ -1,0 +1,29 @@
+.logOutImg {
+    width : 100%;
+    height: 300px;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.logOut_img_div {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    height: 300px;
+}
+
+.logOut_bgImg_div {
+    background-size: contain no repeat;
+    width : 100%;
+    z-index: -1;
+    position: absolute;
+    height: 300px;
+}
+
+.logOut_search {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+}

@@ -11,6 +11,8 @@ import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage';
 import TaskerPage from './components/TaskerPage';
 import BecomeTaskerForm from './components/BecomeTaskerForm';
+import TaskDetailsForm from './components/TaskDetailsForm';
+import EditTaskerDetailsForm from './components/EditTaskerDetailsForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,11 +48,17 @@ function App() {
         <ProtectedRoute path='/taskers/:taskerId' exact={true} >
           <TaskerPage />
         </ProtectedRoute>
+        <ProtectedRoute path='/taskers/:taskerId/edit' exact={true} >
+          <EditTaskerDetailsForm />
+        </ProtectedRoute>
         <ProtectedRoute path='/new-tasker' exact={true}>
           <BecomeTaskerForm />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <SplashPage />
+        </Route>
+        <Route path='/task-new/:taskTypeId' exact={true}>
+          <TaskDetailsForm />
         </Route>
       </Switch>
     </BrowserRouter>

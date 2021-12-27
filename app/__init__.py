@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.tasker_routes import tasker_routes
 from .api.tasktype_routes import tasktype_routes
 from .api.cities_routes import cities_routes
+from .api.task_routes import task_routes
 
 from .seeds import seed_commands
 
@@ -37,6 +38,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(tasker_routes, url_prefix='/api/taskers')
 app.register_blueprint(tasktype_routes,url_prefix='/api/tasktypes')
 app.register_blueprint(cities_routes,url_prefix='/api/cities')
+app.register_blueprint(task_routes,url_prefix='/api/tasks')
 db.init_app(app)
 Migrate(app, db)
 

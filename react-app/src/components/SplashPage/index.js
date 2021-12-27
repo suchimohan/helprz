@@ -1,4 +1,5 @@
 import SplashImageDiv from "../SplashImageDiv";
+import LogOutImageDiv from "../LogOutImageDiv";
 import Footer from "../Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -24,11 +25,11 @@ const SplashPage = () => {
     let sessionLinks;
     if(sessionUser) {
         sessionLinks = (
-            <h1>My home Page</h1>
+            <SplashImageDiv />
         )
     } else {
         sessionLinks = (
-            <SplashImageDiv />
+            <LogOutImageDiv />
         )
     }
 
