@@ -50,9 +50,6 @@ const LoginForm = () => {
 
   return (
     <div className='credentialDiv'>
-      <div className="bg">
-        <img className='bgImg' src="https://www.taskrabbit.com/v3/assets/_/_/_/_/_/_/_/apps/web/app/assets/images/web/hero_login_background-7ce1b584b1c95c1006eadc4616d27d88.jpg" alt="" />
-      </div>
       <div className = "form-Div">
         <form onSubmit={onLogin} className="form_placing">
           <div className="errors_div">
@@ -100,4 +97,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-

@@ -9,7 +9,7 @@ const Navigation = () => {
 
     const dispatch = useDispatch();
     const sessionUser = useSelector(state=>state.session.user)
-    const tasker = useSelector(state=>Object.values(state.taskers))
+    // const tasker = useSelector(state=>Object.values(state.taskers))
 
     useEffect(()=>{
         if (!sessionUser) {
@@ -21,13 +21,11 @@ const Navigation = () => {
     // console.log('-------------',tasker)
 
     let taskerButton;
-      if(tasker[0] === 'Not Found') {
+      if(sessionUser) {
         taskerButton = (
-            <button>
-                <NavLink to='/new-tasker' exact={true} activeClassName='active'>
-                    Become A Tasker
-                </NavLink>
-            </button>
+            <NavLink to='/new-tasker' exact={true} activeClassName='active'>
+                Become A Tasker
+            </NavLink>
         )
     }
 
@@ -36,11 +34,9 @@ const Navigation = () => {
         sessionLinks = (
             <ul className="nav2">
                 <li>
-                    <button>
-                        <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
-                            Account
-                        </NavLink>
-                    </button>
+                    <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
+                        Account
+                    </NavLink>
                 </li>
                 <li>
                     {taskerButton}

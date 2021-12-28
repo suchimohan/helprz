@@ -1,0 +1,62 @@
+.userPlacement{
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top:20px;
+    background-color: whitesmoke;
+    border-radius:5px ;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+
+.accountTag {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom: solid lightgray;
+}
+
+.userButton_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 15px;
+    border-bottom: solid lightgray;
+    padding-bottom: 8px;
+}
+
+.userButton {
+    padding: 0 5px 0 5px;
+    height: 30px;
+    background-color: #438e29;
+    border-radius: 3px;
+    border: none;
+}
+
+.userButton a {
+    color: white;
+}
+
+.userDetails{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:100px;
+}
+
+.userImage{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.userName_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 20px;
+}

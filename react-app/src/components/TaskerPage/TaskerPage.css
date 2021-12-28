@@ -1,0 +1,60 @@
+.taskerProfile{
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top:20px;
+    background-color: whitesmoke;
+    border-radius:5px ;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+
+.taskerTag{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom: solid lightgray;
+}
+
+.tasker_account_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 15px;
+    border-bottom: solid lightgray;
+    padding-bottom: 8px;
+}
+
+.taskerProfileButton {
+    padding: 0 5px 0 5px;
+    height: 30px;
+    background-color: #438e29;
+    border-radius: 3px;
+    border: none;
+}
+
+.taskerProfileButton a{
+    color: white;
+}
+
+.tasker_button_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.taskerDetails{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.taskerDetails span{
+    height: auto;
+    width: auto;
+    padding: 10px;
+}

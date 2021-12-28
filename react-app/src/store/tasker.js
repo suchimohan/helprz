@@ -41,8 +41,22 @@ export const addOneTasker = (payload) => async(dispatch) => {
     if(response.ok) {
         const newTasker = await response.json();
         dispatch(addTasker(newTasker))
-        return newTasker;
-    }
+        return {
+            tasker: newTasker,
+            errors: []
+        }
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return {
+                errors: data.errors
+            }
+        }
+      } else {
+        return {
+            errors: ['An error occurred. Please try again.']
+        }
+      }
 }
 
 export const searchOneTaskerOnUserId = (userId) => async(dispatch) => {
@@ -81,7 +95,21 @@ export const editTasker = (payload,taskerId) => async (dispatch) => {
     if(response.ok) {
         const editedTasker = await response.json();
         dispatch(editOneTasker(editedTasker))
-        return editedTasker
+        return {
+            tasker: editedTasker,
+            errors: []
+        }
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return {
+                errors: data.errors
+            }
+        }
+      } else {
+        return {
+            errors: ['An error occurred. Please try again.']
+        }
     }
 }
 

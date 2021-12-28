@@ -1,7 +1,6 @@
 .logOutImg {
     width : 100%;
     height: 300px;
-    object-fit: cover;
     opacity: 0.5;
 }
 
@@ -26,4 +25,15 @@
     top: 30%;
     width: 100%;
     text-align: center;
+}
+
+.searchTaskButton{
+    background-color:#438e29;
+    border-radius:3px;
+    border: none;
+    height:30px;
+}
+
+.searchTaskButton a {
+    color: white
 }

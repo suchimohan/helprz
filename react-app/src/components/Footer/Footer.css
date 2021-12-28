@@ -5,7 +5,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-top: 1px solid var(--light-gray);
+    border-top: 1px solid lightgray;
   }
 
   .madeby {

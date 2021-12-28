@@ -11,15 +11,16 @@ import { getOneTaskerByID } from '../../store/tasker';
 const EditTaskerDetailsForm = () => {
     const taskTypes = useSelector(state=>Object.values(state.taskTypes))
     const cities = useSelector(state=>Object.values(state.cities))
-    const tasker = useSelector(state=>Object.values(state.taskers))
 
     const { taskerId }  = useParams();
-    // const [errors, setErrors] = useState([]);
-    const [taskName, setTaskName] = useState(tasker[0]?.taskType.id);
-    const [description, setDescription] = useState(tasker[0]?.description)
-    const [experience, setExperience] = useState(tasker[0]?.experience)
-    const [city, setCity] = useState(tasker[0]?.city.id)
-    const [price, setPrice] = useState(tasker[0]?.price)
+    const tasker = useSelector((state)=>state?.taskers[taskerId])
+
+    const [taskName, setTaskName] = useState(tasker?.taskType?.id);
+    const [description, setDescription] = useState(tasker?.description)
+    const [experience, setExperience] = useState(tasker?.experience)
+    const [city, setCity] = useState(tasker?.city?.id)
+    const [price, setPrice] = useState(tasker?.price)
+    const [errors, setErrors] = useState([]);
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -30,6 +31,16 @@ const EditTaskerDetailsForm = () => {
         dispatch(get_cities())
         dispatch(getOneTaskerByID(taskerId))
     },[dispatch,taskerId])
+
+    useEffect(()=>{
+        if(tasker){
+            setTaskName(tasker.taskType.id)
+            setDescription(tasker.description)
+            setExperience(tasker.experience)
+            setPrice(tasker.price)
+            setCity(tasker.city.id)
+        }
+    },[tasker])
 
     const handleCancel = () => {
         history.push(`/taskers/${taskerId}`)
@@ -44,23 +55,30 @@ const EditTaskerDetailsForm = () => {
             city,
             price,
         }
-    // console.log("the new payload is",payload)
-    let editedTasker = await dispatch(editTasker(payload,taskerId));
-    if (editedTasker) {
+    let response = await dispatch(editTasker(payload,taskerId));
+    if (response.tasker) {
     history.push(`/taskers/${taskerId}`);
-    }}
+    }
+    if(response.errors.length){
+        setErrors(response.errors)
+    }
+}
 
-
-    if (!tasker[0]) {
+    if (!tasker) {
         return null
     } else {
         return (
             <div className='edit-tasker-Div'>
-                <h2>Edit your Tasker profile details</h2>
+                <h3>Edit your Tasker profile details</h3>
                     <form onSubmit={handleSubmit} className='edit-tasker'>
+                        <div className="errors_div">
+                            {errors.map((error, ind) => (
+                            <div key={ind} className='errorItem'>{error}</div>
+                            ))}
+                        </div>
                         <div>
                             <label>Choose A Task Category</label>
-                            <select required onChange={(e)=>setTaskName(e.target.value)} value={taskName}>
+                            <select onChange={(e)=>setTaskName(e.target.value)} value={taskName}>
                             {(taskTypes?.map(type => {
                                 return (
                                     <option key={"editTaskerDetailsFormCategory-"+type.id} value={type.id}>{type.name}</option>
@@ -73,7 +91,6 @@ const EditTaskerDetailsForm = () => {
                             <textarea
                             onChange={(e)=>setDescription(e.target.value)}
                             value={description}
-                            required
                             />
                         </div>
                         <div>
@@ -81,15 +98,12 @@ const EditTaskerDetailsForm = () => {
                             <input
                             onChange={(e)=>setExperience(e.target.value)}
                             value={experience}
-                            required
                             type="number"
-                            min = "0"
-                            max = "50"
                             />
                         </div>
                         <div>
                         <label> Choose City </label>
-                        <select required onChange={(e)=>setCity(e.target.value)} value={city}>
+                        <select onChange={(e)=>setCity(e.target.value)} value={city}>
                             {(cities?.map(city => {
                                 return (
                                     <option key={"editTaskerDetailsFormCity-"+city.id} value={city.id}>{city.name}</option>
@@ -102,18 +116,14 @@ const EditTaskerDetailsForm = () => {
                             <input
                             onChange={(e)=>setPrice(e.target.value)}
                             value={price}
-                            required
                             type="number"
-                            min = "1"
-                            max = "500"
-                            step = "0.01"
                             />
                         </div>
-                        <div className="button_div">
-                            <button className='submit-button' type='submit'>
+                        <div className="edit_button_div">
+                            <button className='edit_submit-button' type='submit'>
                                 Submit
                             </button>
-                            <button className='submit-button' type='submit' onClick={()=>{handleCancel()}}>
+                            <button className='edit_submit-button' type='submit' onClick={()=>{handleCancel()}}>
                                 Cancel
                             </button>
                         </div>
