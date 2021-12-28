@@ -10,13 +10,12 @@ const BecomeTaskerForm = () => {
     const taskTypes = useSelector(state=>Object.values(state.taskTypes))
     const cities = useSelector(state=>Object.values(state.cities))
 
-
-    // const [errors, setErrors] = useState([]);
     const [taskName, setTaskName] = useState(taskTypes[0]?.id);
     const [description, setDescription] = useState('')
     const [experience, setExperience] = useState('')
     const [city, setCity] = useState(cities[0]?.id)
     const [price, setPrice] = useState('')
+    const [errors, setErrors] = useState([]);
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -26,6 +25,18 @@ const BecomeTaskerForm = () => {
         dispatch(get_taskTypes())
         dispatch(get_cities())
     },[dispatch])
+
+
+//to update taskName & city after state loads
+    useEffect(()=>{
+        if(!taskName){
+            setTaskName(taskTypes[0]?.id)
+        }
+        if(!city){
+            setCity(cities[0]?.id)
+        }
+    },[taskTypes,cities,city,taskName])
+
 
     const handleCancel = () => {
         history.push('/')
@@ -40,19 +51,29 @@ const BecomeTaskerForm = () => {
             city,
             price,
         }
-    let createdTasker = await dispatch(addOneTasker(payload));
-    if (createdTasker) {
-    history.push(`/taskers/${createdTasker.id}`);
-    }}
+        // console.log(payload)
+    let response = await dispatch(addOneTasker(payload));
+    if (response.tasker) {
+        history.push(`/taskers/${response.tasker.id}`);
+    }
+    if(response.errors.length){
+        setErrors(response.errors)
+    }
+    }
 
     return (
         <div className='add-tasker-Div'>
             <h3>Find local jobs that fit your skills. With Helprz, you have the freedom and support to be your own boss.</h3>
             <h3>Let's get started, tell us about yourself</h3>
                 <form onSubmit={handleSubmit} className='add-tasker'>
+                    <div className="errors_div">
+                        {errors.map((error, ind) => (
+                        <div key={ind} className='errorItem'>{error}</div>
+                        ))}
+                    </div>
                     <div>
                         <label>Choose A Task Category</label>
-                        <select required onChange={(e)=>setTaskName(e.target.value)}>
+                        <select onChange={(e)=>setTaskName(e.target.value)} value={taskName}>
                         {(taskTypes?.map(type => {
                             return (
                                 <option key={"newTaskerFormCategory-"+type.id} value={type.id}>{type.name}</option>
@@ -65,7 +86,6 @@ const BecomeTaskerForm = () => {
                         <textarea
                         onChange={(e)=>setDescription(e.target.value)}
                         value={description}
-                        required
                         />
                     </div>
                     <div>
@@ -73,15 +93,12 @@ const BecomeTaskerForm = () => {
                         <input
                         onChange={(e)=>setExperience(e.target.value)}
                         value={experience}
-                        required
                         type="number"
-                        min = "0"
-                        max = "50"
                         />
                     </div>
                     <div>
                     <label> Choose City </label>
-                    <select required onChange={(e)=>setCity(e.target.value)}>
+                    <select onChange={(e)=>setCity(e.target.value)} value={city}>
                         {(cities?.map(city => {
                             return (
                                 <option key={"newTaskerFormCity-"+city.id} value={city.id}>{city.name}</option>
@@ -94,11 +111,7 @@ const BecomeTaskerForm = () => {
                         <input
                         onChange={(e)=>setPrice(e.target.value)}
                         value={price}
-                        required
                         type="number"
-                        min = "1"
-                        max = "500"
-                        step = "0.01"
                         />
                     </div>
                     <div className="button_div">
@@ -113,6 +126,7 @@ const BecomeTaskerForm = () => {
             </div>
     )
 }
+
 
 
 export default BecomeTaskerForm;

@@ -4,22 +4,28 @@ import { getTasksOnUserID } from '../../store/task';
 import { editTask } from '../../store/task';
 import {useParams} from 'react-router-dom';
 import {useHistory} from "react-router";
+import './EditBookingForm.css'
 
 const EditBookingForm = () =>{
 
-    const tasks = useSelector(state=>Object.values(state.tasks))
-    const dispatch = useDispatch();
-    const history = useHistory();
     const { userId }  = useParams();
     const { taskId }  = useParams();
+    const task = useSelector((state)=>state?.tasks[taskId])
+    const dispatch = useDispatch();
+    const history = useHistory();
 
-    const onetask = tasks.find((ele)=>+ele.id === +taskId)
-
-    const [editedTaskDescription, seteditedTaskDescription] = useState(onetask?.taskDescription)
-
+    const [editedTaskDescription, seteditedTaskDescription] = useState(task?.taskDescription)
+    const [errors, setErrors] = useState([]);
+    
     useEffect(()=>{
         dispatch(getTasksOnUserID(userId))
     },[dispatch,userId])
+
+    useEffect(()=>{
+        if(task){
+            seteditedTaskDescription(task.taskDescription)
+        }
+    },[task])
 
     const handleCancel = () => {
         history.push(`/users/${userId}/tasks`)
@@ -30,23 +36,32 @@ const EditBookingForm = () =>{
         const payload = {
             editedTaskDescription
         }
-        let editedTask = await dispatch(editTask(payload,taskId));
-        if (editedTask) {
+        let response = await dispatch(editTask(payload,taskId));
+        if (response.task) {
         history.push(`/users/${userId}/tasks`);
-        }}
+        }
+        if(response.errors.length){
+            setErrors(response.errors)
+        }
+    }
 
-    if (!onetask){
+    if (!task){
         return null
     }
     return (
         <div className='edit-task-Div'>
             <h2>Edit your Task Description</h2>
             <form onSubmit={handleSubmit} className='edit-task'>
+                <div className="errors_div">
+                    {errors.map((error, ind) => (
+                    <div key={ind} className='errorItem'>{error}</div>
+                    ))}
+                </div>
                 <div className="edit_description_div">
+                    <label>Task Description</label>
                     <textarea
                         onChange={(e)=>seteditedTaskDescription(e.target.value)}
                         value={editedTaskDescription}
-                        required
                     />
                 </div>
                 <div> Note: If you want to edit the city or date/time please cancel the current booking and book a new task.</div>

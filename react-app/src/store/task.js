@@ -48,7 +48,21 @@ export const editTask = (payload, taskId) => async (dispatch) => {
     if(response.ok) {
         const editedTask = await response.json();
         dispatch(editOneTask(editedTask))
-        return editedTask
+        return {
+            task: editedTask,
+            errors: []
+        }
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return {
+                errors: data.errors
+            }
+        }
+      } else {
+        return {
+            errors: ['An error occurred. Please try again.']
+        }
     }
 }
 

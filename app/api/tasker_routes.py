@@ -8,6 +8,16 @@ from sqlalchemy import and_
 
 tasker_routes = Blueprint('taskers', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
 @tasker_routes.route('/<int:id>', methods=['GET'])
 def get_taskers(id):
     tasker = Tasker.query.get(id)
@@ -36,7 +46,7 @@ def add_new_tasker():
         db.session.commit()
         return tasker.to_dict()
     else:
-        return {'message' : 'Bad Data'}
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @tasker_routes.route('/search/<int:userId>', methods=['GET'])
@@ -97,4 +107,4 @@ def update_tasker(taskerId):
     db.session.commit()
     return tasker.to_dict()
   else:
-    return {'message': "Bad Data"}
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

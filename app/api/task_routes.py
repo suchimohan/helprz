@@ -8,6 +8,16 @@ from app.forms import EditTaskForm
 
 task_routes = Blueprint('tasks', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
 @task_routes.route('/new',methods=["POST"])
 def add_new_task():
     form = AddTaskForm()
@@ -51,4 +61,4 @@ def updated_task(taskId):
         db.session.commit()
         return task.to_dict()
     else:
-        return {'message': "Bad Data"}
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
