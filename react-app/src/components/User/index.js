@@ -32,7 +32,7 @@ function User() {
   if(tasker[0]?.id) {
     sessionLinks = (
       <button className='userButton'>
-        <NavLink to={`/taskers/${tasker[0].id}`} exact={true} activeClassName='active'>
+        <NavLink to={`/users/${userId}/taskers/${tasker[0].id}`} exact={true} activeClassName='active'>
           Tasker profile <i className="fa fa-gavel" aria-hidden="true"></i>
         </NavLink>
       </button>

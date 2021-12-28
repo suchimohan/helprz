@@ -11,7 +11,8 @@ def seed_tasks():
         taskTypesId = 8,
         dateTime = datetime.now(),
         taskDescription = "Need to shop for groceries in Costco",
-        duration = "1 hr"
+        duration = "1 hr",
+        status = "created"
         )
 
     db.session.add(task1)

@@ -34,6 +34,11 @@
     background-color: #438e29;
     border-radius: 3px;
     border: none;
+    color: white;
+}
+
+.taskerProfileButton:hover {
+    cursor: pointer
 }
 
 .taskerProfileButton a{

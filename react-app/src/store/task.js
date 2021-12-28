@@ -1,6 +1,7 @@
 const ADD_TASK = 'tasks/ADD_TASK';
 const GET_TASKS = 'tasks/GET_TASKS';
 const EDIT_TASK = 'tasks/EDIT_TASK';
+const DELETE_TASK = 'tasks/DELETE_TASK';
 
 const addTask = payload => ({
     type:ADD_TASK,
@@ -14,6 +15,11 @@ const getTasks = payload => ({
 
 const editOneTask = payload => ({
     type: EDIT_TASK,
+    payload
+})
+
+const deleteOneTask = payload => ({
+    type: DELETE_TASK,
     payload
 })
 
@@ -66,10 +72,22 @@ export const editTask = (payload, taskId) => async (dispatch) => {
     }
 }
 
+export const deleteTask = (taskId) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/${taskId}/delete`, {
+        method: 'DELETE',
+    });
+    if (response.ok) {
+        const task = await response.json();
+        dispatch(deleteOneTask(task))
+        return task
+    }
+}
+
 const taskReducer = (state={},action) =>{
     switch(action.type){
         case ADD_TASK:{
-            const newState = {...state,[action.payload.id]:action.payload}
+            const newState = {}
+            newState[action.payload.id] = action.payload
             return newState
         }
         case GET_TASKS:{
@@ -80,6 +98,11 @@ const taskReducer = (state={},action) =>{
             const newState = {}
             newState[action.payload.id] = action.payload
             return newState
+        }
+        case DELETE_TASK : {
+            const newState = {...state};
+            newState[action.payload.id] = action.payload
+            return newState;
         }
         default:
             return state

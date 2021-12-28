@@ -3,6 +3,7 @@ const SEARCH_TASKER_ON_USERID = 'tasker/SEARCH_TASKER_ON_USERID'
 const SEARCH_AVAILABLE_TASKERS = 'taskers/SEARCH_AVAILABLE_TASKERS'
 const GET_ONE_TASKER = 'tasker/GET_ONETASKER'
 const EDIT_TASKER = 'tasker/EDIT_TASKER'
+const DELETE_TASKER = 'tasker/DELETE_TASKER'
 
 //action creater
 const addTasker = payload => ({
@@ -27,6 +28,11 @@ const getOneTasker = payload => ({
 
 const editOneTasker = payload => ({
     type: EDIT_TASKER,
+    payload
+})
+
+const deleteOneTasker = (payload) => ({
+    type: DELETE_TASKER,
     payload
 })
 
@@ -113,6 +119,16 @@ export const editTasker = (payload,taskerId) => async (dispatch) => {
     }
 }
 
+export const deleteTasker = (taskerId) => async (dispatch) => {
+    const response = await fetch(`/api/taskers/${taskerId}/delete`, {
+        method: 'DELETE',
+    });
+    if (response.ok) {
+        dispatch(deleteOneTasker(taskerId))
+        return taskerId
+    }
+}
+
 //reducer
 
 const taskerReducer = (state={}, action) => {
@@ -138,6 +154,11 @@ const taskerReducer = (state={}, action) => {
             const newState = {}
             newState[action.payload.id] = action.payload
             return newState
+        }
+        case DELETE_TASKER : {
+            const newState = {...state};
+            delete newState[action.payload];
+            return newState;
         }
         default:
             return state

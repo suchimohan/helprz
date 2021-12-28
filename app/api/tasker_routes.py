@@ -8,6 +8,9 @@ from sqlalchemy import and_
 
 tasker_routes = Blueprint('taskers', __name__)
 
+STATUS_ACTIVE = "active"
+STATUS_INACTIVE = "inactive"
+
 def validation_errors_to_error_messages(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
@@ -22,7 +25,7 @@ def validation_errors_to_error_messages(validation_errors):
 def get_taskers(id):
     tasker = Tasker.query.get(id)
     if tasker:
-        tasker = tasker.to_dict()
+        tasker = tasker.to_dict_gettask()
         return tasker
     else:
         return {'message' : 'Tasker not found'}
@@ -32,7 +35,6 @@ def add_new_tasker():
     currentUser = current_user.to_dict()
     form = NewTaskerForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    # print("///////////////////////////////////////", form.data)
     if form.validate_on_submit():
         tasker = Tasker(
             userId = currentUser['id'],
@@ -40,7 +42,8 @@ def add_new_tasker():
             citiesId = int(form.data['city']),
             description = form.data['description'],
             experience = form.data['experience'],
-            price = form.data['price']
+            price = form.data['price'],
+            status = STATUS_ACTIVE
         )
         db.session.add(tasker)
         db.session.commit()
@@ -59,15 +62,6 @@ def search_tasker(userId):
     return {'message': "Not Found"}
 
 
-# @tasker_routes.route('/city/<int:cityId>/taskType/<int:taskTypeId>', methods=['GET'])
-# def available_taskers(cityId,taskTypeId):
-#     searchResult = Tasker.query.filter(Tasker.citiesId == cityId).filter(Tasker.taskTypesId == taskTypeId).all()
-#     if searchResult:
-#         result = {r.id : r.to_dict_gettask() for r in searchResult}
-#         return result
-#     else:
-#         return {'message': "Not Found"}
-
 @tasker_routes.route('/filter', methods=['GET'])
 def filtered_taskers():
   cityId = request.args.get('cityId')
@@ -82,8 +76,7 @@ def filtered_taskers():
   where tasks.id is null
   and taskers."taskTypesId" = 1
   and taskers."citiesId" = 1'''
-  searchResult = Tasker.query.join(Task,and_(Task.taskerId == Tasker.id , Task.dateTime == task_date_time),isouter=True).filter(and_(Tasker.citiesId == cityId , Tasker.taskTypesId == taskTypeId,Task.id == None)).all()
-  # searchResult = Tasker.query.filter(Tasker.citiesId == cityId).filter(Tasker.taskTypesId == taskTypeId).all()
+  searchResult = Tasker.query.join(Task,and_(Task.taskerId == Tasker.id , Task.dateTime == task_date_time),isouter=True).filter(and_(Tasker.status == STATUS_ACTIVE , Tasker.citiesId == cityId , Tasker.taskTypesId == taskTypeId,Task.id == None)).all()
   if searchResult:
     result = {r.id : r.to_dict_gettask() for r in searchResult}
     return result
@@ -108,3 +101,14 @@ def update_tasker(taskerId):
     return tasker.to_dict()
   else:
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@tasker_routes.route('/<int:taskerId>/delete', methods=['DELETE'])
+def delete_tasker(taskerId):
+  tasker = Tasker.query.get(taskerId)
+  if tasker:
+    tasker.status = STATUS_INACTIVE
+    db.session.commit()
+    return 'deleted'
+  else:
+    return '401'

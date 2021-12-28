@@ -22,7 +22,9 @@ def validation_errors_to_error_messages(validation_errors):
 def add_new_task():
     form = AddTaskForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print("/////////////////form data", form.data)
     if form.validate_on_submit():
+        print("/////////////////form data after validation", form.data)
         task = Task(
             requestUserId = form.data['requestUserId'],
             taskerId = form.data['taskerId'],
@@ -31,6 +33,7 @@ def add_new_task():
             dateTime = datetime.combine(form.data['date'], form.data['time']),
             taskDescription = form.data['taskDescription'],
             duration = form.data['duration'],
+            status = "created"
         )
         db.session.add(task)
         db.session.commit()
@@ -42,9 +45,14 @@ def add_new_task():
 
 @task_routes.route('/<int:userId>',methods=["GET"])
 def get_tasks(userId):
-    result = Task.query.filter(Task.requestUserId == userId).all()
+    result = Task.query.order_by(Task.dateTime.desc()).filter(Task.requestUserId == userId).all()
+    print("check the query??????????????????????")
     if result:
-        tasks = {t.id : t.to_dict() for t in result}
+        tasks = {}
+        i = 0
+        for t in result:
+            tasks[i] = t.to_dict()
+            i = i + 1
         return tasks
     else:
         return {'message': "Not Found"}
@@ -62,3 +70,14 @@ def updated_task(taskId):
         return task.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@task_routes.route('/<int:taskId>/delete', methods=['DELETE'])
+def delete_task(taskId):
+  task = Task.query.get(taskId)
+  if task:
+    task.status = "cancelled"
+    db.session.commit()
+    return task.to_dict()
+  else:
+    return '401'

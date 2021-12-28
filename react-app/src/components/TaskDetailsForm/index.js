@@ -25,7 +25,7 @@ const TaskDetailsForm = () => {
 
     const today = new Date()
 
-    const [time,setTime] = useState("08:00:00")
+    const [time,setTime] = useState('08:00:00')
     const [date,setDate] = useState(moment(today).format('YYYY-MM-DD'))
 
     const minday = ms('90d')
@@ -107,13 +107,18 @@ const TaskDetailsForm = () => {
         payload["taskerId"] = selectedTaskerId
         payload["date"] = date
         payload["time"] = time
-
+        console.log('.....payload for creating task',payload)
         let createdTask = await dispatch(addOneTask(payload))
         if (createdTask) {
             history.push('/')
         }
     }
 
+    // if(!filteredTaskerData.length){
+    //     return (
+    //         <h1>No taskers Found</h1>
+    //     )
+    // }
     return (
         <div>
             {formPhase===1 && (<div>
@@ -158,12 +163,12 @@ const TaskDetailsForm = () => {
                     <div>
                         <label>choose Time</label>
                         <select value={time} onChange={(e) => setTime(e.target.value)}>
-                            <option value="08:00:00">8:00 - 10:00 am</option>
-                            <option value="10:00:00">10:00 - 12:00 pm</option>
-                            <option value="12:00:00">12:00 - 2:00 pm</option>
-                            <option value="14:00:00">2:00 - 4:00 pm</option>
-                            <option value="16:00:00">4:00 - 6:00 pm</option>
-                            <option value="18:00:00">6:00 - 8:00 pm</option>
+                            <option value='08:00:00'>8:00 - 10:00 am</option>
+                            <option value='10:00:00'>10:00 - 12:00 pm</option>
+                            <option value='12:00:00'>12:00 - 2:00 pm</option>
+                            <option value='14:00:00'>2:00 - 4:00 pm</option>
+                            <option value='16:00:00'>4:00 - 6:00 pm</option>
+                            <option value='18:00:00'>6:00 - 8:00 pm</option>
                         </select>
                     </div>
                     <div>If you need two or more Taskers, please post additional tasks for each Tasker needed.</div>

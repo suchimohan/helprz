@@ -12,6 +12,7 @@ class Tasker(db.Model):
     description = db.Column(db.Text, nullable=False)
     experience = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Numeric(10,2), nullable=False)
+    status= db.Column(db.String(255),nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
@@ -31,6 +32,7 @@ class Tasker(db.Model):
             'description': self.description,
             'experience': self.experience,
             'price': float(self.price),
+            'status': self.status,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
@@ -44,7 +46,8 @@ class Tasker(db.Model):
             'description': self.description,
             'experience': self.experience,
             'price': float(self.price),
-            'tasks' : {t.id : t.to_dict_gettime() for t in self.tasks},
+            'status': self.status,
+            'tasks' : {t.id : t.to_dict_gettaskDetails() for t in self.tasks},
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

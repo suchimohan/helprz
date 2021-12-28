@@ -12,6 +12,7 @@ class Task(db.Model):
     dateTime = db.Column(db.DateTime, nullable=False)
     taskDescription = db.Column(db.Text, nullable=False)
     duration = db.Column(db.String(255), nullable=False)
+    status = db.Column(db.String(255),nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
@@ -33,15 +34,20 @@ class Task(db.Model):
             'dateTime': self.dateTime,
             'taskDescription': self.taskDescription,
             'duration': self.duration,
+            'status': self.status,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
 
-    def to_dict_gettime(self):
+    def to_dict_gettaskDetails(self):
         return {
             'id': self.id,
+            'user': self.user.to_dict(),
+            'city': self.city.to_dict(),
+            'taskType': self.taskType.to_dict(),
             'dateTime': self.dateTime,
-            'duration': self.duration,
+            'taskDescription': self.taskDescription,
+            'status': self.status,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField, DecimalField, IntegerField, DateField,TimeField
+from wtforms import StringField,TextAreaField, DecimalField, IntegerField, DateField
+from wtforms.fields.html5 import TimeField
 from wtforms.validators import DataRequired
 
 class AddTaskForm(FlaskForm):
@@ -10,4 +11,4 @@ class AddTaskForm(FlaskForm):
     taskDescription = TextAreaField('taskDescription',validators=[DataRequired()])
     duration = StringField('duration',validators=[DataRequired()])
     date = DateField('date', validators=[DataRequired()])
-    time = TimeField('time', validators=[DataRequired()])
+    time = TimeField('time',format='%H:%M:%S', validators=[DataRequired()])
