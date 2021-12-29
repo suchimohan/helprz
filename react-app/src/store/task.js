@@ -136,7 +136,7 @@ const taskReducer = (state={},action) =>{
             const oldState = {...state};
             const newState = {};
             for (const[key, value] of Object.entries(oldState)) {
-                if(value.id == action.payload.id)
+                if(value.id === action.payload.id)
                     newState[key] = action.payload;
                 else
                     newState[key] = value;
@@ -147,7 +147,7 @@ const taskReducer = (state={},action) =>{
             const oldState = {...state};
             const newState = {};
             for (const[key, value] of Object.entries(oldState)) {
-                if(value.id == action.payload.id)
+                if(value.id === action.payload.id)
                     newState[key] = action.payload;
                 else
                     newState[key] = value;

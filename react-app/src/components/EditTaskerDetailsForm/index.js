@@ -58,7 +58,7 @@ const EditTaskerDetailsForm = () => {
         }
     let response = await dispatch(editTasker(payload,taskerId));
     if (response.tasker) {
-    history.push(`/taskers/${taskerId}`);
+    history.push(`/users/${sessionUser.id}/taskers/${taskerId}`);
     }
     if(response.errors.length){
         setErrors(response.errors)

@@ -12,7 +12,7 @@ const EditBookingForm = () =>{
     const { taskId }  = useParams();
     const task = useSelector((state)=>{
         for (const[key, value] of Object.entries(state?.tasks)) {
-            if(value.id == taskId)
+            if(value.id === taskId)
                 return value;
         }
         return null;

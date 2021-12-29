@@ -1,0 +1,127 @@
+.task-details-form-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+
+.task-details-form{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom:50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.task_form_button_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.task_form_submit-button{
+  color: white;
+  padding: 0 5px 0 5px;
+  height: 30px;
+  width: 200px;
+  background-color: #438e29;
+  font-size: large;
+  border-radius: 3px;
+  border: none;
+}
+
+
+.task-details-form input {
+    height: 40px;
+    width: 350px;
+    box-sizing:border-box;
+    border: 1px solid #999;
+    padding: 1em;
+}
+
+.task-details-form label {
+    display: inline-block;
+    width: 300px;
+    text-align: left;
+    font-weight: bold;
+    font-size:20px;
+}
+
+.task-details-form textarea{
+    height: 100px;
+    width: 350px;
+    box-sizing:border-box;
+    border: 1px solid #999;
+    padding: 1em;
+}
+
+.task_form_description_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.errors_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.errorItem {
+    color: red
+}
+
+.avlbTaskers {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: solid #438e29;
+    border-radius: 5px;
+  }
+
+.tasker_select_button_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    grid-gap: 20px;
+    gap: 20px;
+}
+
+.phase2form{
+    padding-bottom: 50px
+}
+
+.phase3-form-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.phase3-details-form{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom:50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 5px;
+}
