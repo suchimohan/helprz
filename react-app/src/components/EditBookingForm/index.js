@@ -10,13 +10,19 @@ const EditBookingForm = () =>{
 
     const { userId }  = useParams();
     const { taskId }  = useParams();
-    const task = useSelector((state)=>state?.tasks[taskId])
+    const task = useSelector((state)=>{
+        for (const[key, value] of Object.entries(state?.tasks)) {
+            if(value.id == taskId)
+                return value;
+        }
+        return null;
+    })
     const dispatch = useDispatch();
     const history = useHistory();
 
     const [editedTaskDescription, seteditedTaskDescription] = useState(task?.taskDescription)
     const [errors, setErrors] = useState([]);
-    
+
     useEffect(()=>{
         dispatch(getTasksOnUserID(userId))
     },[dispatch,userId])
