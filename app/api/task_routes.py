@@ -43,7 +43,7 @@ def add_new_task():
         db.session.commit()
         return task.to_dict()
     else:
-        return {'message' : 'Bad Data'}
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 

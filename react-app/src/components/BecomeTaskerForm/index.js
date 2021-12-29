@@ -9,6 +9,7 @@ import {get_cities} from "../../store/cities"
 const BecomeTaskerForm = () => {
     const taskTypes = useSelector(state=>Object.values(state.taskTypes))
     const cities = useSelector(state=>Object.values(state.cities))
+    const sessionUser = useSelector(state=>state.session.user)
 
     const [taskName, setTaskName] = useState(taskTypes[0]?.id);
     const [description, setDescription] = useState('')
@@ -54,7 +55,7 @@ const BecomeTaskerForm = () => {
         // console.log(payload)
     let response = await dispatch(addOneTasker(payload));
     if (response.tasker) {
-        history.push(`/taskers/${response.tasker.id}`);
+        history.push(`/users/${sessionUser.id}/taskers/${response.tasker.id}`);
     }
     if(response.errors.length){
         setErrors(response.errors)

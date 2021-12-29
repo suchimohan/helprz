@@ -12,7 +12,7 @@ const EditBookingForm = () =>{
     const { taskId }  = useParams();
     const task = useSelector((state)=>{
         for (const[key, value] of Object.entries(state?.tasks)) {
-            if(value.id === taskId)
+            if(value.id === parseInt(taskId))
                 return value;
         }
         return null;
@@ -52,7 +52,9 @@ const EditBookingForm = () =>{
     }
 
     if (!task){
-        return null
+        return (
+            <h1> Task not found</h1>
+        )
     }
     return (
         <div className='edit-task-Div'>

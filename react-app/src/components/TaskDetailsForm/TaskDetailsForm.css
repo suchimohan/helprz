@@ -125,3 +125,22 @@
     padding: 20px;
     border-radius: 5px;
 }
+
+.phase3-details-form span{
+    height: auto;
+    width: auto;
+    padding: 10px;
+}
+
+.tasker_image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.tasker_inform_div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
