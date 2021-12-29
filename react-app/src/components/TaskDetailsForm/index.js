@@ -11,6 +11,7 @@ import moment from 'moment';
 import './TaskDetailsForm.css'
 import TaskerCard from "../TaskerCard"
 
+
 const TaskDetailsForm = () => {
 
     const sessionUser = useSelector(state=>state.session.user)
@@ -26,7 +27,14 @@ const TaskDetailsForm = () => {
                         ]
 
 
-    const [time,setTime] = useState('08:00:00')
+    const timeDataToSelect = [
+                                {"id":1, "dbValue":'08:00:00', "displayValue":"8:00 - 10:00 am"},
+                                {"id":2, "dbValue":'10:00:00', "displayValue":"10:00 - 12:00 pm"},
+                                {"id":3, "dbValue":'12:00:00', "displayValue":"12:00 - 2:00 pm"},
+                                {"id":4, "dbValue":'14:00:00', "displayValue":"2:00 - 4:00 pm"},
+                                {"id":5, "dbValue":'16:00:00', "displayValue":"4:00 - 6:00 pm"},
+                                {"id":6, "dbValue":'18:00:00', "displayValue":"6:00 - 8:00 pm"},
+                            ]
 
 
     const minday = ms('1d')
@@ -35,8 +43,7 @@ const TaskDetailsForm = () => {
     const maxDate = new Date(+new Date() + maxday);
 
     const [date,setDate] = useState(moment(minDate).format('YYYY-MM-DD'))
-
-
+    const [time,setTime] = useState(timeDataToSelect[0].dbValue)
     const [city, setCity] = useState(cities[0]?.id)
     const [duration, setDuration] = useState(durationData[1].dbStoreValue)
     const [selectedTaskerId,setSelectedTaskerId] = useState()
@@ -98,7 +105,6 @@ const TaskDetailsForm = () => {
             return
         }
         let taskerData = await dispatch(searchForTaskers(city,taskTypeId,date,time));
-        // console.log("the tasker details",taskerData)
         if (taskerData) {
             let data = Object.values(taskerData)
             setFilteredTaskerData(data)
@@ -126,7 +132,6 @@ const TaskDetailsForm = () => {
         payload["taskerId"] = selectedTaskerId
         payload["date"] = date
         payload["time"] = time
-        console.log('.....payload for creating task',payload)
         let createdTask = await dispatch(addOneTask(payload))
         if (createdTask) {
             history.push(`/users/${sessionUser.id}/tasks`)
@@ -164,7 +169,7 @@ const TaskDetailsForm = () => {
                     {/* <div>
                         <label>How big is your task?</label>
                         <select required onChange={(e)=>setDuration(e.target.value)}>
-                            {(durationData?.map(data => {
+                            {(durationData.map(data => {
                                 return (
                                     <option key={"newTaskFormDuration-"+data.id} value={data.dbStoreValue}>{data.displayValue}</option>
                                 )
@@ -180,21 +185,20 @@ const TaskDetailsForm = () => {
                     </div>
                     <div>
                         <label>Choose Date:</label>
-                            <input type="date"
+                            <input required type="date"
                                 onChange={(e) => setDate(e.target.value)}
                                 value={date}
                                 min = {moment(minDate).format('YYYY-MM-DD')}
                                 max= {moment(maxDate).format('YYYY-MM-DD')}/>
                     </div>
                     <div>
-                        <label>choose Time</label>
-                        <select value={time} onChange={(e) => setTime(e.target.value)}>
-                            <option value='08:00:00'>8:00 - 10:00 am</option>
-                            <option value='10:00:00'>10:00 - 12:00 pm</option>
-                            <option value='12:00:00'>12:00 - 2:00 pm</option>
-                            <option value='14:00:00'>2:00 - 4:00 pm</option>
-                            <option value='16:00:00'>4:00 - 6:00 pm</option>
-                            <option value='18:00:00'>6:00 - 8:00 pm</option>
+                        <label>Choose Time</label>
+                        <select required value={time} onChange={(e) => setTime(e.target.value)}>
+                            {(timeDataToSelect.map(data => {
+                                return (
+                                    <option key={"newTaskFormTime-"+data.id} value={data.dbValue}>{data.displayValue}</option>
+                                )
+                            }))}
                         </select>
                     </div>
                     <div>Note: If you need two or more Taskers, please post additional tasks for each Tasker needed.</div>

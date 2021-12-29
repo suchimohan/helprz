@@ -13,6 +13,8 @@ function MyTasks() {
     const dispatch = useDispatch();
     const { userId }  = useParams();
 
+    let today = new Date();
+
     useEffect(()=>{
         dispatch(getTasksOnUserID(userId))
     },[dispatch,userId])
@@ -36,8 +38,9 @@ function MyTasks() {
         <div className='taskList'>
             <div className='yourTaskTag'>Your Tasks</div>
             {tasks?.map(taskInfo => {
+                let taskDate = new Date(taskInfo.dateTime)
                 let editDeleteButton;
-                if(taskInfo.status === "created") {
+                if(taskInfo.status === "created" && today.getTime() < taskDate.getTime()) {
                     editDeleteButton = (
                         <div className='task_list_button_div'>
                             <button className='taskListButton'>

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTasksOnTaskerID } from '../../store/task';
 import {deleteTaskTasker} from '../../store/task';
+import {statusCompletedTasker} from '../../store/task';
 import {useParams} from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import './TaskerJobs.css';
@@ -11,6 +12,8 @@ function TaskerJobs() {
     const tasks = useSelector(state=>Object.values(state.tasks))
     const dispatch = useDispatch();
     const { taskerId }  = useParams();
+
+    let today = new Date()
 
     useEffect(()=>{
         dispatch(getTasksOnTaskerID(taskerId))
@@ -23,7 +26,17 @@ function TaskerJobs() {
         }
     }
 
-    if (!tasks.length || tasks[0] === "Not Found"){
+    const handleCompleteBooking = async(taskId) => {
+        let response = await dispatch(statusCompletedTasker(taskId));
+        if (response) {
+            return <Redirect to={`/tasker/${taskerId}/tasks`} />
+        }
+    }
+
+    if(!tasks.length){
+        return null
+    }
+    if (tasks[0] === "Not Found"){
         return (
             <h1>No jobs found</h1>
         )
@@ -32,12 +45,17 @@ function TaskerJobs() {
         <div className='taskerJobList'>
             <div className='taskerJobTag'>Your Jobs List</div>
             {tasks?.map(taskInfo => {
+                let taskDate = new Date(taskInfo.dateTime)
                 let cancelJobButton;
-                if(taskInfo.status === "created"){
+                if(taskInfo.status === "created" && today.getTime() < taskDate.getTime()){
                     cancelJobButton = (
-                        <div className='job_list_button_div'>
-                            <button className='jobListButton' onClick={()=>handleCancelBooking(taskInfo.id)}>Cancel Job</button>
-                        </div>
+                        <button className='jobListButton' onClick={()=>handleCancelBooking(taskInfo.id)}>Cancel Job</button>
+                    )
+                }
+                let completeJobButton;
+                if(taskInfo.status === "created" && today.getTime() > taskDate.getTime()){
+                    completeJobButton = (
+                    <button className='jobListButton' onClick={()=>handleCompleteBooking(taskInfo.id)}>Job Completed</button>
                     )
                 }
                 return (
@@ -74,7 +92,10 @@ function TaskerJobs() {
                             <strong>Task Date and Time: </strong>
                             <span>{taskInfo.dateTime}</span>
                         </div>
-                        {cancelJobButton}
+                        <div className='job_list_button_div'>
+                            {completeJobButton}
+                            {cancelJobButton}
+                        </div>
                     </div>
                 )
             })}

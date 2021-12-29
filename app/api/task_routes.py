@@ -11,6 +11,7 @@ task_routes = Blueprint('tasks', __name__)
 STATUS_CREATED = "created"
 STATUS_USER_CANCELED = "user_cancelled"
 STATUS_TASKER_CANCELED = "tasker_cancelled"
+STATUS_COMPLETED = "completed"
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -111,3 +112,14 @@ def tasker_delete_task(taskId):
     return task.to_dict()
   else:
     return '401'
+
+
+@task_routes.route('/<int:taskId>/edit-task-status', methods=['PATCH'])
+def edit_task_status(taskId):
+    task = Task.query.get(taskId)
+    if task:
+        task.status = STATUS_COMPLETED
+        db.session.commit()
+        return task.to_dict()
+    else:
+        return '401'
