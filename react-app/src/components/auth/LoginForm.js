@@ -40,6 +40,16 @@ const LoginForm = () => {
     ))
   }
 
+  const handleDemoTaskerLogin = (e) => {
+    e.preventDefault();
+    setErrors([]);
+    const email = 'oscar@oscar.com';
+    const password = 'password';
+    dispatch(sessionActions.login(
+      email, password
+    ))
+  }
+
   const handleCancel = () => {
     history.push('/')
   }
@@ -82,7 +92,8 @@ const LoginForm = () => {
             <button className='submit-button' type='submit' onClick={()=>{handleCancel()}}>
                 Cancel
             </button>
-            <button className="submit-button" onClick={handleDemoLogin} type="submit">Demo</button>
+            <button className="submit-button" onClick={handleDemoLogin} type="submit">Demo User</button>
+            <button className="submit-button" onClick={handleDemoTaskerLogin} type="submit">Demo Tasker</button>
             <div >
               <span>Don't have an account </span>
               <NavLink to='/sign-up' exact={true} activeClassName='active'>

@@ -9,7 +9,7 @@ const Navigation = () => {
 
     const dispatch = useDispatch();
     const sessionUser = useSelector(state=>state.session.user)
-    // const tasker = useSelector(state=>Object.values(state.taskers))
+    const tasker = useSelector(state=>state.taskers)
 
     useEffect(()=>{
         if (!sessionUser) {
@@ -21,7 +21,9 @@ const Navigation = () => {
     // console.log('-------------',tasker)
 
     let taskerButton;
-      if(sessionUser) {
+      if(!tasker || !tasker[sessionUser?.id]
+         //|| tasker[sessionUser?.id].status != 'active'
+         ) {
         taskerButton = (
             <NavLink to='/new-tasker' exact={true} activeClassName='active'>
                 Become A Tasker

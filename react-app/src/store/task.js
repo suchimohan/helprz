@@ -1,7 +1,9 @@
 const ADD_TASK = 'tasks/ADD_TASK';
 const GET_TASKS = 'tasks/GET_TASKS';
 const EDIT_TASK = 'tasks/EDIT_TASK';
-const DELETE_TASK = 'tasks/DELETE_TASK';
+const USER_DELETE_TASK = 'tasks/USER_DELETE_TASK';
+const TASKER_DELETE_TASK = 'tasks/TASKER_DELETE_TASK';
+const GET_TASKS_ON_TASKERID = 'tasks/GET_TASKS_ON_TASKERID';
 
 const addTask = payload => ({
     type:ADD_TASK,
@@ -18,8 +20,18 @@ const editOneTask = payload => ({
     payload
 })
 
-const deleteOneTask = payload => ({
-    type: DELETE_TASK,
+const deleteOneTaskUser = payload => ({
+    type: USER_DELETE_TASK,
+    payload
+})
+
+const deleteOneTaskTasker = payload => ({
+    type: TASKER_DELETE_TASK,
+    payload
+})
+
+const getTasksTaskerID = payload => ({
+    type:GET_TASKS_ON_TASKERID,
     payload
 })
 
@@ -72,14 +84,35 @@ export const editTask = (payload, taskId) => async (dispatch) => {
     }
 }
 
-export const deleteTask = (taskId) => async (dispatch) => {
-    const response = await fetch(`/api/tasks/${taskId}/delete`, {
+export const deleteTaskUser = (taskId) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/${taskId}/user-delete`, {
         method: 'DELETE',
     });
     if (response.ok) {
         const task = await response.json();
-        dispatch(deleteOneTask(task))
+        dispatch(deleteOneTaskUser(task))
         return task
+    }
+}
+
+export const deleteTaskTasker = (taskId) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/${taskId}/tasker-delete`, {
+        method: 'DELETE',
+    });
+    if (response.ok) {
+        const task = await response.json();
+        dispatch(deleteOneTaskTasker(task))
+        return task
+    }
+}
+
+
+export const getTasksOnTaskerID = (taskerId) => async(dispatch) => {
+    const response = await fetch(`/api/tasks/tasker/${taskerId}`)
+    if (response.ok) {
+        const tasks = await response.json();
+        dispatch(getTasksTaskerID(tasks))
+        return tasks
     }
 }
 
@@ -99,10 +132,31 @@ const taskReducer = (state={},action) =>{
             newState[action.payload.id] = action.payload
             return newState
         }
-        case DELETE_TASK : {
-            const newState = {...state};
-            newState[action.payload.id] = action.payload
+        case USER_DELETE_TASK : {
+            const oldState = {...state};
+            const newState = {};
+            for (const[key, value] of Object.entries(oldState)) {
+                if(value.id == action.payload.id)
+                    newState[key] = action.payload;
+                else
+                    newState[key] = value;
+            }
             return newState;
+        }
+        case TASKER_DELETE_TASK : {
+            const oldState = {...state};
+            const newState = {};
+            for (const[key, value] of Object.entries(oldState)) {
+                if(value.id == action.payload.id)
+                    newState[key] = action.payload;
+                else
+                    newState[key] = value;
+            }
+            return newState;
+        }
+        case GET_TASKS_ON_TASKERID:{
+            const newState = action.payload
+            return newState
         }
         default:
             return state

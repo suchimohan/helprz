@@ -1,4 +1,4 @@
-.taskList{
+.taskerJobList{
     margin-left: 25%;
     margin-right: 25%;
     margin-top:20px;
@@ -10,7 +10,7 @@
     gap:20px
 }
 
-.yourTaskTag{
+.taskerJobTag{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -19,7 +19,7 @@
     border-bottom: solid lightgray;
 }
 
-.taskListButton {
+.jobListButton {
     padding: 0 5px 0 5px;
     height: 30px;
     background-color: #438e29;
@@ -28,22 +28,18 @@
     color: white;
 }
 
-.taskListButton:hover {
+.jobListButton:hover {
     cursor: pointer
 }
 
-.taskListButton a{
-    color: white;
-}
-
-.task_list_button_div{
+.job_list_button_div{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     gap: 15px;
 }
 
-.taskListDetails{
+.jobListDetails{
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -53,7 +49,7 @@
     padding: 25px;
 }
 
-.taskListDetails span{
+.jobListDetails span{
     height: auto;
     width: auto;
     padding: 10px;

@@ -1,49 +1,81 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getOneTaskerByID } from '../../store/tasker';
+import { getTasksOnTaskerID } from '../../store/task';
+import {deleteTaskTasker} from '../../store/task';
 import {useParams} from 'react-router-dom';
-import {deleteTask} from '../../store/task';
 import { Redirect } from 'react-router-dom';
+import './TaskerJobs.css';
 
 function TaskerJobs() {
 
-    const tasker = useSelector(state=>Object.values(state.taskers))
+    const tasks = useSelector(state=>Object.values(state.tasks))
     const dispatch = useDispatch();
     const { taskerId }  = useParams();
 
     useEffect(()=>{
-        dispatch(getOneTaskerByID(taskerId))
+        dispatch(getTasksOnTaskerID(taskerId))
     },[dispatch,taskerId])
 
     const handleCancelBooking = async(taskId) => {
-        let response = await dispatch(deleteTask(taskId));
+        let response = await dispatch(deleteTaskTasker(taskId));
         if(response){
             return <Redirect to={`/tasker/${taskerId}/tasks`} />
         }
     }
 
-    let tasks = Object.values(tasker[0]?.tasks)
-
-    if (!tasks.length){
+    if (!tasks.length || tasks[0] === "Not Found"){
         return (
             <h1>No jobs found</h1>
         )
     }
     return (
-        <div>
+        <div className='taskerJobList'>
+            <div className='taskerJobTag'>Your Jobs List</div>
             {tasks?.map(taskInfo => {
+                let cancelJobButton;
+                if(taskInfo.status === "created"){
+                    cancelJobButton = (
+                        <div className='job_list_button_div'>
+                            <button className='jobListButton' onClick={()=>handleCancelBooking(taskInfo.id)}>Cancel Job</button>
+                        </div>
+                    )
+                }
                 return (
-                    <ul key={'JobInfo-'+taskInfo.id}>
-                        <li>Task Type : {taskInfo.taskType.name}</li>
-                        <li>Task City: {taskInfo.city.name}</li>
-                        <li>Task Status: {taskInfo.status}</li>
-                        <li>User Name: {taskInfo.user.username}</li>
-                        <li>User Email: {taskInfo.user.email}</li>
-                        <li>User Photo: <img src={taskInfo.user.profilePhotoURL} alt=""/></li>
-                        <li>Task Description: {taskInfo.taskDescription}</li>
-                        <li>Task Date and Time: {taskInfo.dateTime}</li>
-                        <li><button onClick={()=>handleCancelBooking(taskInfo.id)}>Cancel Booking</button></li>
-                    </ul>
+                    <div key={'JobInfo-'+taskInfo.id} className='jobListDetails'>
+                        <div>
+                            <strong>Task Type : </strong>
+                            <span>{taskInfo.taskType.name}</span>
+                        </div>
+                        <div>
+                            <strong>Task City: </strong>
+                            <span>{taskInfo.city.name}</span>
+                        </div>
+                        <div>
+                            <strong>Task Status: </strong>
+                            <span>{taskInfo.status}</span>
+                        </div>
+                        <div>
+                            <strong>User Name: </strong>
+                            <span>{taskInfo.user.username}</span>
+                        </div>
+                        <div>
+                            <strong>User Email: </strong>
+                            <span>{taskInfo.user.email}</span>
+                        </div>
+                        {/* <div>
+                            <strong>User Photo:</strong>
+                            <span><img src={taskInfo.user.profilePhotoURL} alt=""/></span>
+                        </div> */}
+                        <div>
+                            <strong>Task Description: </strong>
+                            <span>{taskInfo.taskDescription}</span>
+                        </div>
+                        <div>
+                            <strong>Task Date and Time: </strong>
+                            <span>{taskInfo.dateTime}</span>
+                        </div>
+                        {cancelJobButton}
+                    </div>
                 )
             })}
         </div>

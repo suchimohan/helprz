@@ -28,7 +28,7 @@ def get_taskers(id):
         tasker = tasker.to_dict_gettask()
         return tasker
     else:
-        return {'message' : 'Tasker not found'}
+        return {'message' : 'Tasker not found'},404
 
 @tasker_routes.route('/new',methods=['POST'])
 def add_new_tasker():
@@ -56,14 +56,16 @@ def add_new_tasker():
 def search_tasker(userId):
   searchResult = Tasker.query.filter(Tasker.userId == userId).all()
   if searchResult:
-    result = {r.id : r.to_dict() for r in searchResult}
+    result = {r.userId : r.to_dict() for r in searchResult}
     return result
   else:
-    return {'message': "Not Found"}
+    return {'message': "Not Found"},404
 
 
 @tasker_routes.route('/filter', methods=['GET'])
 def filtered_taskers():
+  currentUser = current_user.to_dict()
+  currentUserId = currentUser['id']
   cityId = request.args.get('cityId')
   taskTypeId = request.args.get('taskTypeId')
   task_date = date.fromisoformat(request.args.get('date'))
@@ -76,12 +78,12 @@ def filtered_taskers():
   where tasks.id is null
   and taskers."taskTypesId" = 1
   and taskers."citiesId" = 1'''
-  searchResult = Tasker.query.join(Task,and_(Task.taskerId == Tasker.id , Task.dateTime == task_date_time),isouter=True).filter(and_(Tasker.status == STATUS_ACTIVE , Tasker.citiesId == cityId , Tasker.taskTypesId == taskTypeId,Task.id == None)).all()
+  searchResult = Tasker.query.join(Task,and_(Task.taskerId == Tasker.id , Task.dateTime == task_date_time),isouter=True).filter(and_(Tasker.status == STATUS_ACTIVE , Tasker.citiesId == cityId , Tasker.taskTypesId == taskTypeId,Task.id == None, Tasker.userId != currentUserId)).all()
   if searchResult:
     result = {r.id : r.to_dict_gettask() for r in searchResult}
     return result
   else:
-    return {'message': "Not Found"}
+    return {'message': "Not Found"},404
 
 
 @tasker_routes.route('/<int:taskerId>/edit', methods=['PUT'])
@@ -111,4 +113,4 @@ def delete_tasker(taskerId):
     db.session.commit()
     return 'deleted'
   else:
-    return '401'
+    return 'failed',401

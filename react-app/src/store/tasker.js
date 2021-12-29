@@ -72,6 +72,7 @@ export const searchOneTaskerOnUserId = (userId) => async(dispatch) => {
         dispatch(searchTaskerOnUserId(resultTasker))
         return resultTasker
     }
+    return null
 }
 
 export const searchForTaskers = (cityId,taskTypeId,date,time) => async(dispatch) => {
@@ -81,6 +82,7 @@ export const searchForTaskers = (cityId,taskTypeId,date,time) => async(dispatch)
         dispatch(searchAvailableTaskers(searchResults))
         return searchResults
     }
+    return null
 }
 
 export const getOneTaskerByID = (taskerId) => async(dispatch) => {

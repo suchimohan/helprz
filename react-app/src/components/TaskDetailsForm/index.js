@@ -39,6 +39,7 @@ const TaskDetailsForm = () => {
     const [taskDescription, setTaskDescription] = useState('')
     const [formPhase,setFormPhase] = useState(1)
     const [filteredTaskerData, setFilteredTaskerData] = useState([])
+    const [errors, setErrors] = useState([])
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -71,23 +72,19 @@ const TaskDetailsForm = () => {
         return oneTasker.user.username
     }
 
-    // const ChoosenTime = () => {
-    //     if(time === "8:00" || time === "10:00"){
-    //         return "am"
-    //     }
-    //     else {
-    //         return "pm"
-    //     }
-    // }
-
     const handleSubmitPhase1 = async(e) => {
         e.preventDefault();
         let taskerData = await dispatch(searchForTaskers(city,taskTypeId,date,time));
         // console.log("the tasker details",taskerData)
         if (taskerData) {
+            setErrors([])
             let data = Object.values(taskerData)
             setFilteredTaskerData(data)
             setFormPhase(2)
+        } else {
+            setErrors([
+                "No taskers found for this city/date/time"
+            ])
         }
     }
 
@@ -121,6 +118,11 @@ const TaskDetailsForm = () => {
     // }
     return (
         <div>
+            <div className="errors_div">
+                {errors.map((error, ind) => (
+                <div key={ind} className='errorItem'>{error}</div>
+                ))}
+            </div>
             {formPhase===1 && (<div>
                 <span>Tell us about your task. We use these details to show Taskers in your area who fit your needs.</span>
                 <form onSubmit={handleSubmitPhase1}>
