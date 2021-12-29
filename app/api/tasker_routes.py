@@ -78,7 +78,7 @@ def filtered_taskers():
   where tasks.id is null
   and taskers."taskTypesId" = 1
   and taskers."citiesId" = 1'''
-  searchResult = Tasker.query.join(Task,and_(Task.taskerId == Tasker.id , Task.dateTime == task_date_time),isouter=True).filter(and_(Tasker.status == STATUS_ACTIVE , Tasker.citiesId == cityId , Tasker.taskTypesId == taskTypeId,Task.id == None, Tasker.userId != currentUserId)).all()
+  searchResult = Tasker.query.join(Task,and_(Task.taskerId == Tasker.id , Task.dateTime == task_date_time, Task.status == "created"),isouter=True).filter(and_(Tasker.status == STATUS_ACTIVE , Tasker.citiesId == cityId , Tasker.taskTypesId == taskTypeId,Task.id == None, Tasker.userId != currentUserId)).all()
   if searchResult:
     result = {r.id : r.to_dict_gettask() for r in searchResult}
     return result

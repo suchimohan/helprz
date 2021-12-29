@@ -1,0 +1,32 @@
+.tasker_filter{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    padding: 20px;
+}
+
+.userImage_div{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.userImage{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.userDetails_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.userDetails_div span{
+    height: auto;
+    width: auto;
+    padding: 10px;
+}

@@ -8,6 +8,8 @@ import { addOneTask } from "../../store/task";
 import { searchForTaskers } from "../../store/tasker";
 import ms from 'ms';
 import moment from 'moment';
+import './TaskDetailsForm.css'
+import TaskerCard from "../TaskerCard"
 
 const TaskDetailsForm = () => {
 
@@ -23,14 +25,16 @@ const TaskDetailsForm = () => {
                             {"id" : 3, "displayValue" : "Large - Est. 3 hrs" , "dbStoreValue" : "3 hrs"}
                         ]
 
-    const today = new Date()
 
     const [time,setTime] = useState('08:00:00')
-    const [date,setDate] = useState(moment(today).format('YYYY-MM-DD'))
 
-    const minday = ms('90d')
-    const minDate = new Date();
-    const maxDate = new Date(+new Date() + minday)
+
+    const minday = ms('1d')
+    const maxday = ms('90d')
+    const minDate = new Date(+new Date() + minday);
+    const maxDate = new Date(+new Date() + maxday);
+
+    const [date,setDate] = useState(moment(minDate).format('YYYY-MM-DD'))
 
 
     const [city, setCity] = useState(cities[0]?.id)
@@ -49,6 +53,13 @@ const TaskDetailsForm = () => {
         dispatch(get_taskTypes())
         searchForTaskers(city,taskTypeId)
     },[dispatch,city,taskTypeId])
+
+    //to update city after state loads
+    useEffect(()=>{
+        if(!city){
+            setCity(cities[0]?.id)
+        }
+    },[cities,city])
 
 
     const handleCancel = () => {
@@ -111,11 +122,6 @@ const TaskDetailsForm = () => {
         }
     }
 
-    // if(!filteredTaskerData.length){
-    //     return (
-    //         <h1>No taskers Found</h1>
-    //     )
-    // }
     return (
         <div>
             <div className="errors_div">
@@ -123,12 +129,12 @@ const TaskDetailsForm = () => {
                 <div key={ind} className='errorItem'>{error}</div>
                 ))}
             </div>
-            {formPhase===1 && (<div>
-                <span>Tell us about your task. We use these details to show Taskers in your area who fit your needs.</span>
-                <form onSubmit={handleSubmitPhase1}>
+            {formPhase===1 && (<div className='task-details-form-div'>
+                <h3>Tell us about your task. We use these details to show Taskers in your area who fit your needs.</h3>
+                <form onSubmit={handleSubmitPhase1} className='task-details-form'>
                     <div>
                         <label> Choose a city</label>
-                        <select required onChange={(e)=>setCity(e.target.value)}>
+                        <select required onChange={(e)=>setCity(e.target.value)} value={city}>
                             {(cities?.map(city => {
                                 return (
                                     <option key={"newTaskFormCity-"+city.id} value={city.id}>{city.name}</option>
@@ -146,7 +152,7 @@ const TaskDetailsForm = () => {
                             }))}
                         </select>
                     </div> */}
-                    <div>
+                    <div className="task_form_description_div">
                         <label>Tell us the details of your task</label>
                         <textarea
                             onChange={(e)=>setTaskDescription(e.target.value)}
@@ -173,31 +179,41 @@ const TaskDetailsForm = () => {
                             <option value='18:00:00'>6:00 - 8:00 pm</option>
                         </select>
                     </div>
-                    <div>If you need two or more Taskers, please post additional tasks for each Tasker needed.</div>
-                    <div className="button_div">
-                        <button className='submit-button' type='submit'>
+                    <div>Note: If you need two or more Taskers, please post additional tasks for each Tasker needed.</div>
+                    <div className="task_form_button_div">
+                        <button className='task_form_submit-button' type='submit'>
                             See Taskers & Prices
                         </button>
-                        <button className='submit-button' type='submit' onClick={()=>{handleCancel()}}>
+                        <button className='task_form_submit-button' type='submit' onClick={()=>{handleCancel()}}>
                             Cancel
                         </button>
                     </div>
                 </form>
             </div>
             )}
-            {formPhase===2 && filteredTaskerData?.map(taskerInfo => {
+            {formPhase===2 && (
+            <div className="phase2form">
+            {filteredTaskerData?.map(taskerInfo => {
                 return (
-                <div key={'taskerInfo-'+taskerInfo.id}>
-                    <ul>
-                        <li>{taskerInfo.user.username}</li>
-                        <li>{taskerInfo.description}</li>
-                        <li><button type='submit' onClick={()=>{handleSubmitPhase2(taskerInfo.id)}}>Select</button></li>
-                    </ul>
+                <div key={'taskerInfo-'+taskerInfo.id} className="avlbTaskers">
+                    <TaskerCard
+                        key = {'taskerCard-'+taskerInfo.id}
+                        name = {taskerInfo.user.username}
+                        image = {taskerInfo.user.profilePhotoURL}
+                        description = {taskerInfo.description}
+                        price = {taskerInfo.price}
+                        experience = {taskerInfo.experience}
+                    />
+                    <div className="tasker_select_button_div">
+                        <button className='task_form_submit-button' type='submit' onClick={()=>{handleSubmitPhase2(taskerInfo.id)}}>Select</button>
+                    </div>
                 </div>
             )})}
+            </div>
+            )}
             {formPhase===3 && (
-                <div>
-                    <form onSubmit={handleSubmitPhase3}>
+                <div className='phase3-form-div'>
+                    <form onSubmit={handleSubmitPhase3} className='phase3-details-form'>
                         <div>Choosen City : {ChoosenCity()}</div>
                         <div>Choosen Task Type:{ChoosenTaskType()} </div>
                         <div>Task Description:{taskDescription}</div>
@@ -218,15 +234,6 @@ const TaskDetailsForm = () => {
         </div>
     )
 }
-
-
-
-
-
-
-// const taskerId = taskerInfo.id
-
-
 
 
 
