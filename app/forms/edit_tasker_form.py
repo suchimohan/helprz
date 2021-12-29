@@ -6,6 +6,8 @@ def check_experience(form,field):
     experience = field.data
     if experience < 0 or experience > 99:
         raise ValidationError('Experience must be between 0 - 99.')
+    # if isinstance(experience, float):
+    #     raise ValidationError('Experience must be an Integer between 0 - 99.')
 
 def check_price(form,field):
     price = field.data

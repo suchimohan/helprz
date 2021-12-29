@@ -83,12 +83,23 @@ const TaskDetailsForm = () => {
         return oneTasker.user.username
     }
 
+    const ChoosenTaskerPhoto = () => {
+        const oneTasker = taskers.find((ele)=>+ele.id === +selectedTaskerId)
+        return oneTasker.user.profilePhotoURL
+    }
+
     const handleSubmitPhase1 = async(e) => {
         e.preventDefault();
+        setErrors([])
+        if(!taskDescription){
+            setErrors([
+                "description:This field is required"
+            ])
+            return
+        }
         let taskerData = await dispatch(searchForTaskers(city,taskTypeId,date,time));
         // console.log("the tasker details",taskerData)
         if (taskerData) {
-            setErrors([])
             let data = Object.values(taskerData)
             setFilteredTaskerData(data)
             setFormPhase(2)
@@ -118,20 +129,28 @@ const TaskDetailsForm = () => {
         console.log('.....payload for creating task',payload)
         let createdTask = await dispatch(addOneTask(payload))
         if (createdTask) {
-            history.push('/')
+            history.push(`/users/${sessionUser.id}/tasks`)
         }
     }
 
-    return (
-        <div>
+    let errordiv;
+    if(errors.length){
+        errordiv = (
             <div className="errors_div">
                 {errors.map((error, ind) => (
                 <div key={ind} className='errorItem'>{error}</div>
                 ))}
             </div>
+        )
+    }
+
+
+    return (
+        <div>
             {formPhase===1 && (<div className='task-details-form-div'>
                 <h3>Tell us about your task. We use these details to show Taskers in your area who fit your needs.</h3>
                 <form onSubmit={handleSubmitPhase1} className='task-details-form'>
+                    {errordiv}
                     <div>
                         <label> Choose a city</label>
                         <select required onChange={(e)=>setCity(e.target.value)} value={city}>
@@ -157,7 +176,6 @@ const TaskDetailsForm = () => {
                         <textarea
                             onChange={(e)=>setTaskDescription(e.target.value)}
                             value={taskDescription}
-                            required
                         />
                     </div>
                     <div>
@@ -214,12 +232,31 @@ const TaskDetailsForm = () => {
             {formPhase===3 && (
                 <div className='phase3-form-div'>
                     <form onSubmit={handleSubmitPhase3} className='phase3-details-form'>
-                        <div>Choosen City : {ChoosenCity()}</div>
-                        <div>Choosen Task Type:{ChoosenTaskType()} </div>
-                        <div>Task Description:{taskDescription}</div>
-                        <div>Date: {date}</div>
-                        <div>Start Time: {time}</div>
-                        <div>Choosen Tasker Name:{ChoosenTasker()}</div>
+                        <div>
+                            <strong>Choosen City :</strong>
+                            <span>{ChoosenCity()}</span>
+                        </div>
+                        <div>
+                            <strong>Choosen Task Type:</strong>
+                            <span>{ChoosenTaskType()}</span>
+                        </div>
+                        <div>
+                            <strong>Task Description:</strong>
+                            <span>{taskDescription}</span>
+                        </div>
+                        <div>
+                            <strong>Choosen Date:</strong>
+                            <span>{date}</span>
+                        </div>
+                        <div>
+                            <strong>Choosen Start Time: </strong>
+                            <span>{time}</span>
+                        </div>
+                        <div className="tasker_inform_div">
+                            <strong>Choosen Tasker:</strong>
+                            <img className="tasker_image" src={ChoosenTaskerPhoto()} alt="" />
+                            <strong>{ChoosenTasker()}</strong>
+                        </div>
                         <div className="button_div">
                             <button className='submit-button' type='submit'>
                                 Confirm Booking
