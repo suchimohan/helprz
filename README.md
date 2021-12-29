@@ -1,6 +1,6 @@
 # Helprz
 
-[Helprz](https://helprz.herokuapp.com/) Useful site to find help for your household tasks limited to a certain location.
+[Helprz](https://helprz.herokuapp.com/) - Useful site to find help for your household tasks limited to a certain location.
 
 ## Helprz App Screenshots
 
@@ -8,7 +8,7 @@ Search or Select tasks on the home page
 ![homepage](https://res.cloudinary.com/dpdawijui/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1640815602/screencapture-helprz-herokuapp-2021-12-29-13_43_11_mbjsep.png)
 
 Tasker Profile Page
-![taskerpage](https://res.cloudinary.com/dpdawijui/image/upload/t_media_lib_thumb/v1640816092/screencapture-helprz-herokuapp-users-5-taskers-35-2021-12-29-14_11_06_xufeu4.png)
+![taskerpage](https://res.cloudinary.com/dpdawijui/image/upload/v1640816092/screencapture-helprz-herokuapp-users-5-taskers-35-2021-12-29-14_11_06_xufeu4.png)
 
 Mytasks Page
 ![mytasks](https://res.cloudinary.com/dpdawijui/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1640815740/screencapture-localhost-3000-users-1-tasks-2021-12-29-14_02_48_cyjv15.png)
@@ -59,7 +59,10 @@ def filtered_taskers():
     task_date = date.fromisoformat(request.args.get('date'))
     task_time = time.fromisoformat(request.args.get('time'))
     task_date_time = datetime.combine(task_date,task_time)
-    searchResult = Tasker.query.join(Task,and_(Task.taskerId == Tasker.id , Task.dateTime == task_date_time, Task.status == "created"),isouter=True).filter(and_(Tasker.status == STATUS_ACTIVE , Tasker.citiesId == cityId , Tasker.taskTypesId == taskTypeId,Task.id == None, Tasker.userId != currentUserId)).all()
+    searchResult = Tasker.query.join(Task,and_(Task.taskerId == Tasker.id ,
+                    Task.dateTime == task_date_time, Task.status == "created"),isouter=True)
+                    .filter(and_(Tasker.status == STATUS_ACTIVE , Tasker.citiesId == cityId ,
+                    Tasker.taskTypesId == taskTypeId,Task.id == None, Tasker.userId != currentUserId)).all()
     if searchResult:
         result = {r.id : r.to_dict_gettask() for r in searchResult}
         return result
@@ -72,4 +75,4 @@ def filtered_taskers():
 - Payments & billing
 
 ## Reach me on
-- [Linkdin](https://www.linkedin.com/in/suchitra-mohan/)
+- [LinkedIn](https://www.linkedin.com/in/suchitra-mohan/)
