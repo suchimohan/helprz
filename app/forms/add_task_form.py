@@ -1,6 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField, DecimalField, IntegerField, DateField
-from wtforms.fields.html5 import TimeField
+from wtforms import StringField,TextAreaField, DecimalField, IntegerField, DateField, TimeField
 from wtforms.validators import DataRequired
 
 class AddTaskForm(FlaskForm):
