@@ -1,134 +1,75 @@
-# Flask React Project
+# Helprz
 
-This is the starter for the Flask React project.
+[Helprz](https://helprz.herokuapp.com/) Useful site to find help for your household tasks limited to a certain location.
 
-## Getting started
+## Helprz App Screenshots
 
-1. Clone this repository (only this branch)
+Search or Select tasks on the home page
+![homepage](https://res.cloudinary.com/dpdawijui/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1640815602/screencapture-helprz-herokuapp-2021-12-29-13_43_11_mbjsep.png)
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+Tasker Profile Page
+![taskerpage](https://res.cloudinary.com/dpdawijui/image/upload/t_media_lib_thumb/v1640816092/screencapture-helprz-herokuapp-users-5-taskers-35-2021-12-29-14_11_06_xufeu4.png)
 
-2. Install dependencies
+Mytasks Page
+![mytasks](https://res.cloudinary.com/dpdawijui/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1640815740/screencapture-localhost-3000-users-1-tasks-2021-12-29-14_02_48_cyjv15.png)
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+## Summary of the main features
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+Helprz includes MVP functionality for the following features:
+- Choose a task
+	- Users can search or select the task of their choice from available options
+- Provide task details
+	- Users can provide elaborate details on tasks
+    - Users can select city, date and time for the task.
+- Select tasker price & confirm
+    -   Based on the city choosen Users can see the available   taskers and their profile
+	- Users can select a tasker and confirm the booking
+	- Users can view, edit or cancel the booking.
+- Become a Tasker
+	- Users can become a tasker
+	- Users can edit their tasker profile and delete
+	- Users can view their jobs and cancel.
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+## Documentation (see wiki)
+Detailed documentation with the database schema, back-end routes, front-end routes, user stories, and features overview can be found in the [wiki](https://github.com/suchimohan/helprz/wiki)
 
-   ```bash
-   pipenv shell
-   ```
+## Tech details
 
-   ```bash
-   flask db upgrade
-   ```
+The app is a combination of a Python back-end, wrapped over a relational database, and a React front-end.
 
-   ```bash
-   flask seed all
-   ```
+- Database
+	- **PostgresQL** as the main (and only) data store
+	- **SQLAlchemy** for object mapping
+	- **Alembic** for easy migration management
+- Back-end API (Python)
+	- **Flask** with assorted libraries such as **WTForms**
+	- Served with **gunicorn** from a **Docker** container
+- Front-end client (JavaScript)
+	- UI is written in **React** using functional components
+	- **Redux** state management
 
-   ```bash
-   flask run
-   ```
+## Code snippet
+```
+@tasker_routes.route('/filter', methods=['GET'])
+def filtered_taskers():
+    currentUser = current_user.to_dict()
+    currentUserId = currentUser['id']
+    cityId = request.args.get('cityId')
+    taskTypeId = request.args.get('taskTypeId')
+    task_date = date.fromisoformat(request.args.get('date'))
+    task_time = time.fromisoformat(request.args.get('time'))
+    task_date_time = datetime.combine(task_date,task_time)
+    searchResult = Tasker.query.join(Task,and_(Task.taskerId == Tasker.id , Task.dateTime == task_date_time, Task.status == "created"),isouter=True).filter(and_(Tasker.status == STATUS_ACTIVE , Tasker.citiesId == cityId , Tasker.taskTypesId == taskTypeId,Task.id == None, Tasker.userId != currentUserId)).all()
+    if searchResult:
+        result = {r.id : r.to_dict_gettask() for r in searchResult}
+        return result
+    else:
+        return {'message': "Not Found"},404
+```
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+## Future features
+- Reviews
+- Payments & billing
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-## Deploy to Heroku
-
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
-
-   ```bash
-   heroku login
-   ```
-
-6. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. Release your docker container to heroku
-
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
-
-10. set up your database
-
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
-
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
-
-12. profit
-
-### For M1 Mac users
-
-(Replaces **Step 8**)
-
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
-
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
-
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
-
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
-
-3. Use docker to push the image to the Heroku container registry:
-
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
+## Reach me on
+- [Linkdin](https://www.linkedin.com/in/suchitra-mohan/)
