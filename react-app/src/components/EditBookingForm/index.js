@@ -52,9 +52,7 @@ const EditBookingForm = () =>{
     }
 
     if (!task){
-        return (
-            <h1> Task not found</h1>
-        )
+        return null
     }
     return (
         <div className='edit-task-Div'>

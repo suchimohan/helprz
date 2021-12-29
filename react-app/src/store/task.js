@@ -4,6 +4,7 @@ const EDIT_TASK = 'tasks/EDIT_TASK';
 const USER_DELETE_TASK = 'tasks/USER_DELETE_TASK';
 const TASKER_DELETE_TASK = 'tasks/TASKER_DELETE_TASK';
 const GET_TASKS_ON_TASKERID = 'tasks/GET_TASKS_ON_TASKERID';
+const STATUS_COMPLETED = 'tasks/STATUS_COMPLETED'
 
 const addTask = payload => ({
     type:ADD_TASK,
@@ -30,6 +31,11 @@ const deleteOneTaskTasker = payload => ({
     payload
 })
 
+const setStatusCompleted = payload => ({
+    type: TASKER_DELETE_TASK,
+    payload
+})
+
 const getTasksTaskerID = payload => ({
     type:GET_TASKS_ON_TASKERID,
     payload
@@ -44,21 +50,7 @@ export const addOneTask = (payload) => async(dispatch) => {
     if(response.ok) {
         const newTask = await response.json();
         dispatch(addTask(newTask))
-        return {
-            task: newTask,
-            errors: []
-        }
-    } else if (response.status < 500) {
-        const data = await response.json();
-        if (data.errors) {
-            return {
-                errors: data.errors
-            }
-        }
-      } else {
-        return {
-            errors: ['An error occurred. Please try again.']
-        }
+        return newTask;
     }
 }
 
@@ -120,6 +112,17 @@ export const deleteTaskTasker = (taskId) => async (dispatch) => {
     }
 }
 
+export const statusCompletedTasker = (taskId) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/${taskId}/edit-task-status`,{
+        method: "PATCH",
+    });
+    if (response.ok) {
+        const task = await response.json();
+        dispatch(setStatusCompleted(task))
+        return task
+    }
+}
+
 
 export const getTasksOnTaskerID = (taskerId) => async(dispatch) => {
     const response = await fetch(`/api/tasks/tasker/${taskerId}`)
@@ -158,6 +161,17 @@ const taskReducer = (state={},action) =>{
             return newState;
         }
         case TASKER_DELETE_TASK : {
+            const oldState = {...state};
+            const newState = {};
+            for (const[key, value] of Object.entries(oldState)) {
+                if(value.id === action.payload.id)
+                    newState[key] = action.payload;
+                else
+                    newState[key] = value;
+            }
+            return newState;
+        }
+        case STATUS_COMPLETED : {
             const oldState = {...state};
             const newState = {};
             for (const[key, value] of Object.entries(oldState)) {
