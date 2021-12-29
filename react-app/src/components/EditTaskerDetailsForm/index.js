@@ -11,6 +11,7 @@ import { getOneTaskerByID } from '../../store/tasker';
 const EditTaskerDetailsForm = () => {
     const taskTypes = useSelector(state=>Object.values(state.taskTypes))
     const cities = useSelector(state=>Object.values(state.cities))
+    const sessionUser = useSelector(state=>state.session.user)
 
     const { taskerId }  = useParams();
     const tasker = useSelector((state)=>state?.taskers[taskerId])
@@ -43,7 +44,7 @@ const EditTaskerDetailsForm = () => {
     },[tasker])
 
     const handleCancel = () => {
-        history.push(`/taskers/${taskerId}`)
+        history.push(`/users/${sessionUser.id}/taskers/${taskerId}`)
     }
 
     const handleSubmit = async (e) => {

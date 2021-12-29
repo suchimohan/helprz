@@ -21,6 +21,7 @@ def seed_taskers():
             description = mock_tasker["description"],
             experience = mock_tasker["experience"],
             price = mock_tasker["price"],
+            status = mock_tasker["status"]
         )
         db.session.add(new_tasker)
     db.session.commit()

@@ -26,13 +26,13 @@ function User() {
     dispatch(searchOneTaskerOnUserId(userId))
   },[dispatch,userId])
 
-  const tasker = useSelector(state=>Object.values(state.taskers))
+  const tasker = useSelector(state=>(state.taskers))
 
   let sessionLinks;
-  if(tasker[0]?.id) {
+  if(tasker[userId]?.status === 'active') {
     sessionLinks = (
       <button className='userButton'>
-        <NavLink to={`/taskers/${tasker[0].id}`} exact={true} activeClassName='active'>
+        <NavLink to={`/users/${userId}/taskers/${tasker[userId].id}`} exact={true} activeClassName='active'>
           Tasker profile <i className="fa fa-gavel" aria-hidden="true"></i>
         </NavLink>
       </button>

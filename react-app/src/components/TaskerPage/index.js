@@ -4,29 +4,44 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getOneTaskerByID } from '../../store/tasker';
 import { NavLink } from 'react-router-dom';
 import './TaskerPage.css'
-
+import {useHistory} from "react-router";
+import { deleteTasker } from '../../store/tasker';
 
 function TaskerPage() {
 
     const tasker = useSelector(state=>Object.values(state.taskers))
     const sessionUser = useSelector(state=>state.session.user)
     const { taskerId }  = useParams();
+    const {userId} = useParams();
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(()=>{
         dispatch(getOneTaskerByID(taskerId))
     },[dispatch,taskerId])
+
+    const handleDelete = async(taskerId) => {
+        let response = await dispatch(deleteTasker(taskerId));
+        if(response){
+            history.push(`/users/${userId}`)
+        }
+    }
 
     let sessionLinks;
     if(sessionUser.id === tasker[0]?.user.id) {
         sessionLinks = (
             <div className='tasker_button_div'>
                 <button className='taskerProfileButton'>
+                    <NavLink to={`/taskers/${taskerId}/tasks`} exact={true} activeClassName='active'>
+                        View Tasks
+                    </NavLink>
+                </button>
+                <button className='taskerProfileButton'>
                     <NavLink to={`/taskers/${taskerId}/edit`} exact={true} activeClassName='active'>
                         Edit Tasker Profile Details
                     </NavLink>
                 </button>
-                <button className='taskerProfileButton'>
+                <button className='taskerProfileButton' onClick={()=>handleDelete(taskerId)}>
                     Delete Tasker Profile
                 </button>
             </div>

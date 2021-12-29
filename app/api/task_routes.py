@@ -8,6 +8,10 @@ from app.forms import EditTaskForm
 
 task_routes = Blueprint('tasks', __name__)
 
+STATUS_CREATED = "created"
+STATUS_USER_CANCELED = "user_cancelled"
+STATUS_TASKER_CANCELED = "tasker_cancelled"
+
 def validation_errors_to_error_messages(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
@@ -22,7 +26,9 @@ def validation_errors_to_error_messages(validation_errors):
 def add_new_task():
     form = AddTaskForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print("/////////////////form data", form.data)
     if form.validate_on_submit():
+        print("/////////////////form data after validation", form.data)
         task = Task(
             requestUserId = form.data['requestUserId'],
             taskerId = form.data['taskerId'],
@@ -31,6 +37,7 @@ def add_new_task():
             dateTime = datetime.combine(form.data['date'], form.data['time']),
             taskDescription = form.data['taskDescription'],
             duration = form.data['duration'],
+            status = STATUS_CREATED
         )
         db.session.add(task)
         db.session.commit()
@@ -42,9 +49,29 @@ def add_new_task():
 
 @task_routes.route('/<int:userId>',methods=["GET"])
 def get_tasks(userId):
-    result = Task.query.filter(Task.requestUserId == userId).all()
+    result = Task.query.order_by(Task.dateTime.desc()).filter(Task.requestUserId == userId).all()
+    print("check the query??????????????????????")
     if result:
-        tasks = {t.id : t.to_dict() for t in result}
+        tasks = {}
+        i = 0
+        for t in result:
+            tasks[i] = t.to_dict()
+            i = i + 1
+        return tasks
+    else:
+        return {'message': "Not Found"}
+
+
+
+@task_routes.route('/tasker/<int:taskerId>',methods=["GET"])
+def get_tasks_tasker(taskerId):
+    result = Task.query.order_by(Task.dateTime.desc()).filter(Task.taskerId == taskerId).all()
+    if result:
+        tasks = {}
+        i = 0
+        for t in result:
+            tasks[i] = t.to_dict()
+            i = i + 1
         return tasks
     else:
         return {'message': "Not Found"}
@@ -62,3 +89,25 @@ def updated_task(taskId):
         return task.to_dict()
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@task_routes.route('/<int:taskId>/user-delete', methods=['DELETE'])
+def user_delete_task(taskId):
+  task = Task.query.get(taskId)
+  if task:
+    task.status = STATUS_USER_CANCELED
+    db.session.commit()
+    return task.to_dict()
+  else:
+    return '401'
+
+
+@task_routes.route('/<int:taskId>/tasker-delete', methods=['DELETE'])
+def tasker_delete_task(taskId):
+  task = Task.query.get(taskId)
+  if task:
+    task.status = STATUS_TASKER_CANCELED
+    db.session.commit()
+    return task.to_dict()
+  else:
+    return '401'

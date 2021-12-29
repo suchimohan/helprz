@@ -25,7 +25,7 @@ const TaskDetailsForm = () => {
 
     const today = new Date()
 
-    const [time,setTime] = useState("08:00:00")
+    const [time,setTime] = useState('08:00:00')
     const [date,setDate] = useState(moment(today).format('YYYY-MM-DD'))
 
     const minday = ms('90d')
@@ -39,6 +39,7 @@ const TaskDetailsForm = () => {
     const [taskDescription, setTaskDescription] = useState('')
     const [formPhase,setFormPhase] = useState(1)
     const [filteredTaskerData, setFilteredTaskerData] = useState([])
+    const [errors, setErrors] = useState([])
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -71,23 +72,19 @@ const TaskDetailsForm = () => {
         return oneTasker.user.username
     }
 
-    // const ChoosenTime = () => {
-    //     if(time === "8:00" || time === "10:00"){
-    //         return "am"
-    //     }
-    //     else {
-    //         return "pm"
-    //     }
-    // }
-
     const handleSubmitPhase1 = async(e) => {
         e.preventDefault();
         let taskerData = await dispatch(searchForTaskers(city,taskTypeId,date,time));
         // console.log("the tasker details",taskerData)
         if (taskerData) {
+            setErrors([])
             let data = Object.values(taskerData)
             setFilteredTaskerData(data)
             setFormPhase(2)
+        } else {
+            setErrors([
+                "No taskers found for this city/date/time"
+            ])
         }
     }
 
@@ -107,15 +104,25 @@ const TaskDetailsForm = () => {
         payload["taskerId"] = selectedTaskerId
         payload["date"] = date
         payload["time"] = time
-
+        console.log('.....payload for creating task',payload)
         let createdTask = await dispatch(addOneTask(payload))
         if (createdTask) {
             history.push('/')
         }
     }
 
+    // if(!filteredTaskerData.length){
+    //     return (
+    //         <h1>No taskers Found</h1>
+    //     )
+    // }
     return (
         <div>
+            <div className="errors_div">
+                {errors.map((error, ind) => (
+                <div key={ind} className='errorItem'>{error}</div>
+                ))}
+            </div>
             {formPhase===1 && (<div>
                 <span>Tell us about your task. We use these details to show Taskers in your area who fit your needs.</span>
                 <form onSubmit={handleSubmitPhase1}>
@@ -158,12 +165,12 @@ const TaskDetailsForm = () => {
                     <div>
                         <label>choose Time</label>
                         <select value={time} onChange={(e) => setTime(e.target.value)}>
-                            <option value="08:00:00">8:00 - 10:00 am</option>
-                            <option value="10:00:00">10:00 - 12:00 pm</option>
-                            <option value="12:00:00">12:00 - 2:00 pm</option>
-                            <option value="14:00:00">2:00 - 4:00 pm</option>
-                            <option value="16:00:00">4:00 - 6:00 pm</option>
-                            <option value="18:00:00">6:00 - 8:00 pm</option>
+                            <option value='08:00:00'>8:00 - 10:00 am</option>
+                            <option value='10:00:00'>10:00 - 12:00 pm</option>
+                            <option value='12:00:00'>12:00 - 2:00 pm</option>
+                            <option value='14:00:00'>2:00 - 4:00 pm</option>
+                            <option value='16:00:00'>4:00 - 6:00 pm</option>
+                            <option value='18:00:00'>6:00 - 8:00 pm</option>
                         </select>
                     </div>
                     <div>If you need two or more Taskers, please post additional tasks for each Tasker needed.</div>

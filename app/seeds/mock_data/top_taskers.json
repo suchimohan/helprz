@@ -5,7 +5,8 @@
       "citiesId": 1,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
       "experience": 4,
-      "price": 70
+      "price": 70,
+      "status":"active"
     },
     {
       "userId": 5,
@@ -13,7 +14,8 @@
       "citiesId": 1,
       "description": "Hello I am good at putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
       "experience": 6,
-      "price": 60
+      "price": 60,
+      "status":"active"
     },
     {
       "userId": 6,
@@ -21,7 +23,8 @@
       "citiesId": 1,
       "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
       "experience": 2,
-      "price": 100
+      "price": 100,
+      "status":"active"
     },
     {
       "userId": 7,
@@ -29,7 +32,8 @@
       "citiesId": 1,
       "description": "Whether you need someone to pick up groceries or do your holiday gift shipping. Pick up something from a store across town or to do research for an important purchase. I’m here to help with any of your shopping needs!",
       "experience": 3,
-      "price": 60
+      "price": 60,
+      "status":"active"
     },
     {
       "userId": 10,
@@ -37,7 +41,8 @@
       "citiesId": 1,
       "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
       "experience": 4,
-      "price": 100
+      "price": 100,
+      "status":"active"
     },
     {
       "userId": 11,
@@ -45,7 +50,8 @@
       "citiesId": 1,
       "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
       "experience": 6,
-      "price": 150
+      "price": 150,
+      "status":"active"
     },
     {
       "userId": 13,
@@ -53,7 +59,8 @@
       "citiesId": 1,
       "description": "I have installed sinks, toilets, faucets, showers floor, drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
       "experience": 4,
-      "price": 160
+      "price": 160,
+      "status":"active"
     },
     {
       "userId": 14,
@@ -61,7 +68,8 @@
       "citiesId": 1,
       "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
       "experience": 2,
-      "price": 40
+      "price": 40,
+      "status":"active"
     },
     {
       "userId": 15,
@@ -69,7 +77,8 @@
       "citiesId": 2,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
       "experience": 4,
-      "price": 70
+      "price": 70,
+      "status":"active"
     },
     {
       "userId": 16,
@@ -77,7 +86,8 @@
       "citiesId": 2,
       "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
       "experience": 6,
-      "price": 60
+      "price": 60,
+      "status":"active"
     },
     {
       "userId": 17,
@@ -85,7 +95,8 @@
       "citiesId": 2,
       "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
       "experience": 2,
-      "price": 100
+      "price": 100,
+      "status":"active"
     },
     {
       "userId": 18,
@@ -93,7 +104,8 @@
       "citiesId": 2,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
       "experience": 3,
-      "price": 60
+      "price": 60,
+      "status":"active"
     },
     {
       "userId": 19,
@@ -101,7 +113,8 @@
       "citiesId": 2,
       "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
       "experience": 4,
-      "price": 100
+      "price": 100,
+      "status":"active"
     },
     {
       "userId": 20,
@@ -109,7 +122,8 @@
       "citiesId": 2,
       "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
       "experience": 6,
-      "price": 150
+      "price": 150,
+      "status":"active"
     },
     {
       "userId": 21,
@@ -117,7 +131,8 @@
       "citiesId": 2,
       "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
       "experience": 4,
-      "price": 160
+      "price": 160,
+      "status":"active"
     },
     {
       "userId": 23,
@@ -125,7 +140,8 @@
       "citiesId": 2,
       "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
       "experience": 2,
-      "price": 40
+      "price": 40,
+      "status":"active"
     },
     {
       "userId": 24,
@@ -133,7 +149,8 @@
       "citiesId": 3,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
       "experience": 4,
-      "price": 70
+      "price": 70,
+      "status":"active"
     },
     {
       "userId": 25,
@@ -141,7 +158,8 @@
       "citiesId": 3,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
       "experience": 3,
-      "price": 60
+      "price": 60,
+      "status":"active"
     },
     {
       "userId": 26,
@@ -149,7 +167,8 @@
       "citiesId": 3,
       "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
       "experience": 6,
-      "price": 60
+      "price": 60,
+      "status":"active"
     },
     {
       "userId": 27,
@@ -157,7 +176,8 @@
       "citiesId": 3,
       "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
       "experience": 2,
-      "price": 100
+      "price": 100,
+      "status":"active"
     },
     {
       "userId": 28,
@@ -165,7 +185,8 @@
       "citiesId": 3,
       "description": "I have tackled many painting projects I’m efficient detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
       "experience": 4,
-      "price": 100
+      "price": 100,
+      "status":"active"
     },
     {
       "userId": 29,
@@ -173,7 +194,8 @@
       "citiesId": 3,
       "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
       "experience": 6,
-      "price": 150
+      "price": 150,
+      "status":"active"
     },
     {
       "userId": 30,
@@ -181,7 +203,8 @@
       "citiesId": 3,
       "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
       "experience": 4,
-      "price": 160
+      "price": 160,
+      "status":"active"
     },
     {
       "userId": 31,
@@ -189,7 +212,8 @@
       "citiesId": 3,
       "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
       "experience": 2,
-      "price": 40
+      "price": 40,
+      "status":"active"
     },
     {
       "userId": 32,
@@ -197,7 +221,8 @@
       "citiesId": 4,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
       "experience": 3,
-      "price": 60
+      "price": 60,
+      "status":"active"
     },
     {
       "userId": 33,
@@ -205,7 +230,8 @@
       "citiesId": 4,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
       "experience": 4,
-      "price": 70
+      "price": 70,
+      "status":"active"
     },
     {
       "userId": 34,
@@ -213,7 +239,8 @@
       "citiesId": 4,
       "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
       "experience": 6,
-      "price": 60
+      "price": 60,
+      "status":"active"
     },
     {
       "userId": 35,
@@ -221,7 +248,8 @@
       "citiesId": 4,
       "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
       "experience": 2,
-      "price": 100
+      "price": 100,
+      "status":"active"
     },
     {
       "userId": 36,
@@ -229,7 +257,8 @@
       "citiesId": 4,
       "description": "I have tackled many painting projects I’m efficient detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
       "experience": 4,
-      "price": 100
+      "price": 100,
+      "status":"active"
     },
     {
       "userId": 37,
@@ -237,7 +266,8 @@
       "citiesId": 5,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
       "experience": 3,
-      "price": 60
+      "price": 60,
+      "status":"active"
     },
     {
       "userId": 38,
@@ -245,7 +275,8 @@
       "citiesId": 5,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
       "experience": 4,
-      "price": 70
+      "price": 70,
+      "status":"active"
     },
     {
       "userId": 39,
@@ -253,7 +284,8 @@
       "citiesId": 6,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
       "experience": 3,
-      "price": 60
+      "price": 60,
+      "status":"active"
     },
     {
       "userId": 40,
@@ -261,7 +293,8 @@
       "citiesId": 6,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
       "experience": 4,
-      "price": 70
+      "price": 70,
+      "status":"active"
     },
     {
       "userId": 41,
@@ -269,6 +302,7 @@
       "citiesId": 7,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
       "experience": 3,
-      "price": 60
+      "price": 60,
+      "status":"active"
     }
   ]
