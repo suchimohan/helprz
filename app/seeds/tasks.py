@@ -6,10 +6,11 @@ from datetime import datetime
 def seed_tasks():
     task1 = Task(
         requestUserId= 1,
-        taskerId= 4,
+        taskerId= 6,
         citiesId= 1,
         taskTypesId = 8,
-        dateTime = datetime.now(),
+        # dateTime = datetime.now(),
+        dateTime = datetime.fromisoformat('2021-12-28T08:00:00'),
         taskDescription = "Need to shop for groceries in Costco",
         duration = "1 hr",
         status = "created"

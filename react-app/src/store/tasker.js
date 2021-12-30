@@ -136,7 +136,7 @@ export const deleteTasker = (taskerId) => async (dispatch) => {
 const taskerReducer = (state={}, action) => {
     switch(action.type){
         case ADD_TASKER:{
-            const newState = {...state, [action.payload.id]:action.payload}
+            const newState = {...state, [action.payload.user.id]:action.payload}
             return newState
         }
         case SEARCH_TASKER_ON_USERID: {
@@ -149,12 +149,12 @@ const taskerReducer = (state={}, action) => {
         }
         case GET_ONE_TASKER: {
             const newState = {}
-            newState[action.payload.id] = action.payload
+            newState[action.payload.user.id] = action.payload
             return newState
         }
         case EDIT_TASKER: {
             const newState = {}
-            newState[action.payload.id] = action.payload
+            newState[action.payload.user.id] = action.payload
             return newState
         }
         case DELETE_TASKER : {

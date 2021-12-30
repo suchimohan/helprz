@@ -1,33 +1,60 @@
 [
-    {
-      "userId": 4,
+  {
+      "userId": 2,
       "taskTypesId": 1,
       "citiesId": 1,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
       "experience": 4,
       "price": 70,
       "status":"active"
-    },
-    {
-      "userId": 5,
-      "taskTypesId": 2,
+  },
+  {
+      "userId": 3,
+      "taskTypesId": 1,
       "citiesId": 1,
-      "description": "Hello I am good at putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
-      "experience": 6,
-      "price": 60,
+      "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+      "experience": 4,
+      "price": 80,
       "status":"active"
-    },
-    {
-      "userId": 6,
-      "taskTypesId": 3,
-      "citiesId": 1,
-      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
-      "experience": 2,
-      "price": 100,
-      "status":"active"
-    },
-    {
-      "userId": 7,
+  },
+  {
+    "userId": 4,
+    "taskTypesId": 1,
+    "citiesId": 1,
+    "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+    "experience": 4,
+    "price": 70,
+    "status":"active"
+  },
+  {
+    "userId": 5,
+    "taskTypesId": 2,
+    "citiesId": 1,
+    "description": "Hello I am good at putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+    "experience": 6,
+    "price": 60,
+    "status":"active"
+  },
+  {
+    "userId": 6,
+    "taskTypesId": 3,
+    "citiesId": 1,
+    "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+    "experience": 2,
+    "price": 100,
+    "status":"active"
+  },
+  {
+    "userId": 7,
+    "taskTypesId": 8,
+    "citiesId": 1,
+    "description": "Whether you need someone to pick up groceries or do your holiday gift shipping. Pick up something from a store across town or to do research for an important purchase. I’m here to help with any of your shopping needs!",
+    "experience": 3,
+    "price": 60,
+    "status":"active"
+  },
+  {
+      "userId": 8,
       "taskTypesId": 8,
       "citiesId": 1,
       "description": "Whether you need someone to pick up groceries or do your holiday gift shipping. Pick up something from a store across town or to do research for an important purchase. I’m here to help with any of your shopping needs!",
@@ -36,7 +63,331 @@
       "status":"active"
     },
     {
-      "userId": 10,
+      "userId": 9,
+      "taskTypesId": 8,
+      "citiesId": 1,
+      "description": "Whether you need someone to pick up groceries or do your holiday gift shipping. Pick up something from a store across town or to do research for an important purchase. I’m here to help with any of your shopping needs!",
+      "experience": 3,
+      "price": 60,
+      "status":"active"
+    },
+  {
+    "userId": 10,
+    "taskTypesId": 4,
+    "citiesId": 1,
+    "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+    "experience": 4,
+    "price": 100,
+    "status":"active"
+  },
+  {
+    "userId": 11,
+    "taskTypesId": 5,
+    "citiesId": 1,
+    "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+    "experience": 6,
+    "price": 150,
+    "status":"active"
+  },
+  {
+      "userId": 12,
+      "taskTypesId": 5,
+      "citiesId": 1,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+  {
+    "userId": 13,
+    "taskTypesId": 6,
+    "citiesId": 1,
+    "description": "I have installed sinks, toilets, faucets, showers floor, drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+    "experience": 4,
+    "price": 160,
+    "status":"active"
+  },
+  {
+    "userId": 14,
+    "taskTypesId": 7,
+    "citiesId": 1,
+    "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+    "experience": 2,
+    "price": 40,
+    "status":"active"
+  },
+  {
+    "userId": 15,
+    "taskTypesId": 1,
+    "citiesId": 2,
+    "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+    "experience": 4,
+    "price": 70,
+    "status":"active"
+  },
+  {
+    "userId": 16,
+    "taskTypesId": 2,
+    "citiesId": 2,
+    "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+    "experience": 6,
+    "price": 60,
+    "status":"active"
+  },
+  {
+    "userId": 17,
+    "taskTypesId": 3,
+    "citiesId": 2,
+    "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+    "experience": 2,
+    "price": 100,
+    "status":"active"
+  },
+  {
+    "userId": 18,
+    "taskTypesId": 8,
+    "citiesId": 2,
+    "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+    "experience": 3,
+    "price": 60,
+    "status":"active"
+  },
+  {
+    "userId": 19,
+    "taskTypesId": 4,
+    "citiesId": 2,
+    "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+    "experience": 4,
+    "price": 100,
+    "status":"active"
+  },
+  {
+    "userId": 20,
+    "taskTypesId": 5,
+    "citiesId": 2,
+    "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+    "experience": 6,
+    "price": 150,
+    "status":"active"
+  },
+  {
+    "userId": 21,
+    "taskTypesId": 6,
+    "citiesId": 2,
+    "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+    "experience": 4,
+    "price": 160,
+    "status":"active"
+  },
+  {
+    "userId": 23,
+    "taskTypesId": 7,
+    "citiesId": 2,
+    "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+    "experience": 2,
+    "price": 40,
+    "status":"active"
+  },
+  {
+    "userId": 24,
+    "taskTypesId": 1,
+    "citiesId": 3,
+    "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+    "experience": 4,
+    "price": 70,
+    "status":"active"
+  },
+  {
+    "userId": 25,
+    "taskTypesId": 8,
+    "citiesId": 3,
+    "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+    "experience": 3,
+    "price": 60,
+    "status":"active"
+  },
+  {
+    "userId": 26,
+    "taskTypesId": 2,
+    "citiesId": 3,
+    "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+    "experience": 6,
+    "price": 60,
+    "status":"active"
+  },
+  {
+    "userId": 27,
+    "taskTypesId": 3,
+    "citiesId": 3,
+    "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+    "experience": 2,
+    "price": 100,
+    "status":"active"
+  },
+  {
+    "userId": 28,
+    "taskTypesId": 4,
+    "citiesId": 3,
+    "description": "I have tackled many painting projects I’m efficient detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+    "experience": 4,
+    "price": 100,
+    "status":"active"
+  },
+  {
+    "userId": 29,
+    "taskTypesId": 5,
+    "citiesId": 3,
+    "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+    "experience": 6,
+    "price": 150,
+    "status":"active"
+  },
+  {
+    "userId": 30,
+    "taskTypesId": 6,
+    "citiesId": 3,
+    "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+    "experience": 4,
+    "price": 160,
+    "status":"active"
+  },
+  {
+    "userId": 31,
+    "taskTypesId": 7,
+    "citiesId": 3,
+    "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+    "experience": 2,
+    "price": 40,
+    "status":"active"
+  },
+  {
+    "userId": 32,
+    "taskTypesId": 8,
+    "citiesId": 4,
+    "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+    "experience": 3,
+    "price": 60,
+    "status":"active"
+  },
+  {
+    "userId": 33,
+    "taskTypesId": 1,
+    "citiesId": 4,
+    "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+    "experience": 4,
+    "price": 70,
+    "status":"active"
+  },
+  {
+    "userId": 34,
+    "taskTypesId": 2,
+    "citiesId": 4,
+    "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+    "experience": 6,
+    "price": 60,
+    "status":"active"
+  },
+  {
+    "userId": 35,
+    "taskTypesId": 3,
+    "citiesId": 4,
+    "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+    "experience": 2,
+    "price": 100,
+    "status":"active"
+  },
+  {
+    "userId": 36,
+    "taskTypesId": 4,
+    "citiesId": 4,
+    "description": "I have tackled many painting projects I’m efficient detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+    "experience": 4,
+    "price": 100,
+    "status":"active"
+  },
+  {
+    "userId": 37,
+    "taskTypesId": 8,
+    "citiesId": 5,
+    "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+    "experience": 3,
+    "price": 60,
+    "status":"active"
+  },
+  {
+    "userId": 38,
+    "taskTypesId": 1,
+    "citiesId": 5,
+    "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+    "experience": 4,
+    "price": 70,
+    "status":"active"
+  },
+  {
+    "userId": 39,
+    "taskTypesId": 8,
+    "citiesId": 6,
+    "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+    "experience": 3,
+    "price": 60,
+    "status":"active"
+  },
+  {
+    "userId": 40,
+    "taskTypesId": 1,
+    "citiesId": 6,
+    "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+    "experience": 4,
+    "price": 70,
+    "status":"active"
+  },
+  {
+    "userId": 41,
+    "taskTypesId": 8,
+    "citiesId": 7,
+    "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+    "experience": 3,
+    "price": 60,
+    "status":"active"
+  },
+  {
+      "userId": 42,
+      "taskTypesId": 2,
+      "citiesId": 1,
+      "description": "Hello I am good at putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 43,
+      "taskTypesId": 2,
+      "citiesId": 1,
+      "description": "Hello I am good at putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 44,
+      "taskTypesId": 3,
+      "citiesId": 1,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 45,
+      "taskTypesId": 3,
+      "citiesId": 1,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 46,
       "taskTypesId": 4,
       "citiesId": 1,
       "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
@@ -45,7 +396,16 @@
       "status":"active"
     },
     {
-      "userId": 11,
+      "userId": 47,
+      "taskTypesId": 4,
+      "citiesId": 1,
+      "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 48,
       "taskTypesId": 5,
       "citiesId": 1,
       "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
@@ -54,7 +414,7 @@
       "status":"active"
     },
     {
-      "userId": 13,
+      "userId": 49,
       "taskTypesId": 6,
       "citiesId": 1,
       "description": "I have installed sinks, toilets, faucets, showers floor, drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
@@ -63,7 +423,16 @@
       "status":"active"
     },
     {
-      "userId": 14,
+      "userId": 50,
+      "taskTypesId": 6,
+      "citiesId": 1,
+      "description": "I have installed sinks, toilets, faucets, showers floor, drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 51,
       "taskTypesId": 7,
       "citiesId": 1,
       "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
@@ -72,7 +441,16 @@
       "status":"active"
     },
     {
-      "userId": 15,
+      "userId": 52,
+      "taskTypesId": 7,
+      "citiesId": 1,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 53,
       "taskTypesId": 1,
       "citiesId": 2,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
@@ -81,7 +459,16 @@
       "status":"active"
     },
     {
-      "userId": 16,
+      "userId": 54,
+      "taskTypesId": 1,
+      "citiesId": 2,
+      "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+      "experience": 4,
+      "price": 70,
+      "status":"active"
+    },
+    {
+      "userId": 55,
       "taskTypesId": 2,
       "citiesId": 2,
       "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
@@ -90,7 +477,16 @@
       "status":"active"
     },
     {
-      "userId": 17,
+      "userId": 56,
+      "taskTypesId": 2,
+      "citiesId": 2,
+      "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 57,
       "taskTypesId": 3,
       "citiesId": 2,
       "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
@@ -99,7 +495,16 @@
       "status":"active"
     },
     {
-      "userId": 18,
+      "userId": 58,
+      "taskTypesId": 3,
+      "citiesId": 2,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 59,
       "taskTypesId": 8,
       "citiesId": 2,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
@@ -108,7 +513,16 @@
       "status":"active"
     },
     {
-      "userId": 19,
+      "userId": 60,
+      "taskTypesId": 8,
+      "citiesId": 2,
+      "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+      "experience": 3,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 61,
       "taskTypesId": 4,
       "citiesId": 2,
       "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
@@ -117,7 +531,16 @@
       "status":"active"
     },
     {
-      "userId": 20,
+      "userId": 62,
+      "taskTypesId": 4,
+      "citiesId": 2,
+      "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 63,
       "taskTypesId": 5,
       "citiesId": 2,
       "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
@@ -126,7 +549,16 @@
       "status":"active"
     },
     {
-      "userId": 21,
+      "userId": 64,
+      "taskTypesId": 5,
+      "citiesId": 2,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 65,
       "taskTypesId": 6,
       "citiesId": 2,
       "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
@@ -135,7 +567,16 @@
       "status":"active"
     },
     {
-      "userId": 23,
+      "userId": 66,
+      "taskTypesId": 6,
+      "citiesId": 2,
+      "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 67,
       "taskTypesId": 7,
       "citiesId": 2,
       "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
@@ -144,7 +585,16 @@
       "status":"active"
     },
     {
-      "userId": 24,
+      "userId": 68,
+      "taskTypesId": 7,
+      "citiesId": 2,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 69,
       "taskTypesId": 1,
       "citiesId": 3,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
@@ -153,7 +603,16 @@
       "status":"active"
     },
     {
-      "userId": 25,
+      "userId": 70,
+      "taskTypesId": 1,
+      "citiesId": 3,
+      "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+      "experience": 4,
+      "price": 70,
+      "status":"active"
+    },
+    {
+      "userId": 71,
       "taskTypesId": 8,
       "citiesId": 3,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
@@ -162,7 +621,16 @@
       "status":"active"
     },
     {
-      "userId": 26,
+      "userId": 72,
+      "taskTypesId": 8,
+      "citiesId": 3,
+      "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+      "experience": 3,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 73,
       "taskTypesId": 2,
       "citiesId": 3,
       "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
@@ -171,7 +639,16 @@
       "status":"active"
     },
     {
-      "userId": 27,
+      "userId": 74,
+      "taskTypesId": 2,
+      "citiesId": 3,
+      "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 75,
       "taskTypesId": 3,
       "citiesId": 3,
       "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
@@ -180,7 +657,16 @@
       "status":"active"
     },
     {
-      "userId": 28,
+      "userId": 76,
+      "taskTypesId": 3,
+      "citiesId": 3,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 77,
       "taskTypesId": 4,
       "citiesId": 3,
       "description": "I have tackled many painting projects I’m efficient detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
@@ -189,7 +675,16 @@
       "status":"active"
     },
     {
-      "userId": 29,
+      "userId": 78,
+      "taskTypesId": 4,
+      "citiesId": 3,
+      "description": "I have tackled many painting projects I’m efficient detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 79,
       "taskTypesId": 5,
       "citiesId": 3,
       "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
@@ -198,7 +693,16 @@
       "status":"active"
     },
     {
-      "userId": 30,
+      "userId": 80,
+      "taskTypesId": 5,
+      "citiesId": 3,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 81,
       "taskTypesId": 6,
       "citiesId": 3,
       "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
@@ -207,7 +711,16 @@
       "status":"active"
     },
     {
-      "userId": 31,
+      "userId": 82,
+      "taskTypesId": 6,
+      "citiesId": 3,
+      "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 83,
       "taskTypesId": 7,
       "citiesId": 3,
       "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
@@ -216,7 +729,16 @@
       "status":"active"
     },
     {
-      "userId": 32,
+      "userId": 84,
+      "taskTypesId": 7,
+      "citiesId": 3,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 85,
       "taskTypesId": 8,
       "citiesId": 4,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
@@ -225,7 +747,16 @@
       "status":"active"
     },
     {
-      "userId": 33,
+      "userId": 86,
+      "taskTypesId": 8,
+      "citiesId": 4,
+      "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+      "experience": 3,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 87,
       "taskTypesId": 1,
       "citiesId": 4,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
@@ -234,7 +765,16 @@
       "status":"active"
     },
     {
-      "userId": 34,
+      "userId": 88,
+      "taskTypesId": 1,
+      "citiesId": 4,
+      "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+      "experience": 4,
+      "price": 70,
+      "status":"active"
+    },
+    {
+      "userId": 89,
       "taskTypesId": 2,
       "citiesId": 4,
       "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
@@ -243,7 +783,16 @@
       "status":"active"
     },
     {
-      "userId": 35,
+      "userId": 90,
+      "taskTypesId": 2,
+      "citiesId": 4,
+      "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 91,
       "taskTypesId": 3,
       "citiesId": 4,
       "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
@@ -252,7 +801,16 @@
       "status":"active"
     },
     {
-      "userId": 36,
+      "userId": 92,
+      "taskTypesId": 3,
+      "citiesId": 4,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 93,
       "taskTypesId": 4,
       "citiesId": 4,
       "description": "I have tackled many painting projects I’m efficient detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
@@ -261,7 +819,97 @@
       "status":"active"
     },
     {
-      "userId": 37,
+      "userId": 94,
+      "taskTypesId": 4,
+      "citiesId": 4,
+      "description": "I have tackled many painting projects I’m efficient detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 95,
+      "taskTypesId": 5,
+      "citiesId": 4,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 96,
+      "taskTypesId": 5,
+      "citiesId": 4,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 97,
+      "taskTypesId": 5,
+      "citiesId": 4,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 98,
+      "taskTypesId": 6,
+      "citiesId": 4,
+      "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 99,
+      "taskTypesId": 6,
+      "citiesId": 4,
+      "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 100,
+      "taskTypesId": 6,
+      "citiesId": 4,
+      "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 101,
+      "taskTypesId": 7,
+      "citiesId": 4,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 102,
+      "taskTypesId": 7,
+      "citiesId": 4,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 103,
+      "taskTypesId": 7,
+      "citiesId": 4,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 104,
       "taskTypesId": 8,
       "citiesId": 5,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
@@ -270,7 +918,16 @@
       "status":"active"
     },
     {
-      "userId": 38,
+      "userId": 105,
+      "taskTypesId": 8,
+      "citiesId": 5,
+      "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+      "experience": 3,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 106,
       "taskTypesId": 1,
       "citiesId": 5,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
@@ -279,7 +936,178 @@
       "status":"active"
     },
     {
-      "userId": 39,
+      "userId": 107,
+      "taskTypesId": 1,
+      "citiesId": 5,
+      "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+      "experience": 4,
+      "price": 70,
+      "status":"active"
+    },
+    {
+      "userId": 108,
+      "taskTypesId": 2,
+      "citiesId": 5,
+      "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 109,
+      "taskTypesId": 2,
+      "citiesId": 5,
+      "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 110,
+      "taskTypesId": 2,
+      "citiesId": 5,
+      "description": "Hello I have experience - putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 111,
+      "taskTypesId": 3,
+      "citiesId": 5,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 112,
+      "taskTypesId": 3,
+      "citiesId": 5,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 113,
+      "taskTypesId": 3,
+      "citiesId": 5,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 114,
+      "taskTypesId": 4,
+      "citiesId": 5,
+      "description": "I have tackled many painting projects I’m efficient detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 115,
+      "taskTypesId": 4,
+      "citiesId": 5,
+      "description": "I have tackled many painting projects I’m efficient detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 116,
+      "taskTypesId": 4,
+      "citiesId": 5,
+      "description": "I have tackled many painting projects I’m efficient detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 117,
+      "taskTypesId": 5,
+      "citiesId":5 ,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 118,
+      "taskTypesId": 5,
+      "citiesId":5 ,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 119,
+      "taskTypesId": 5,
+      "citiesId":5 ,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 120,
+      "taskTypesId": 6,
+      "citiesId": 5,
+      "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 121,
+      "taskTypesId": 6,
+      "citiesId": 5,
+      "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 122,
+      "taskTypesId": 6,
+      "citiesId": 5,
+      "description": "I have installed sinks, toilets, faucets, showers, floor drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 123,
+      "taskTypesId": 7,
+      "citiesId": 5,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 124,
+      "taskTypesId": 7,
+      "citiesId": 5,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 125,
+      "taskTypesId": 7,
+      "citiesId": 5,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 126,
       "taskTypesId": 8,
       "citiesId": 6,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
@@ -288,7 +1116,16 @@
       "status":"active"
     },
     {
-      "userId": 40,
+      "userId": 127,
+      "taskTypesId": 8,
+      "citiesId": 6,
+      "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+      "experience": 3,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 128,
       "taskTypesId": 1,
       "citiesId": 6,
       "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
@@ -297,12 +1134,372 @@
       "status":"active"
     },
     {
-      "userId": 41,
+      "userId": 129,
+      "taskTypesId": 1,
+      "citiesId": 6,
+      "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+      "experience": 4,
+      "price": 70,
+      "status":"active"
+    },
+    {
+      "userId": 130,
+      "taskTypesId": 2,
+      "citiesId": 6,
+      "description": "Hello I am good at putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 131,
+      "taskTypesId": 2,
+      "citiesId": 6,
+      "description": "Hello I am good at putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 132,
+      "taskTypesId": 2,
+      "citiesId": 6,
+      "description": "Hello I am good at putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 133,
+      "taskTypesId": 3,
+      "citiesId": 6,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 134,
+      "taskTypesId": 3,
+      "citiesId": 6,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 135,
+      "taskTypesId": 3,
+      "citiesId": 6,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 136,
+      "taskTypesId": 4,
+      "citiesId": 6,
+      "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 137,
+      "taskTypesId": 4,
+      "citiesId": 6,
+      "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 138,
+      "taskTypesId": 4,
+      "citiesId": 6,
+      "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 139,
+      "taskTypesId": 5,
+      "citiesId": 6,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 140,
+      "taskTypesId": 5,
+      "citiesId": 6,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 141,
+      "taskTypesId": 5,
+      "citiesId": 6,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 142,
+      "taskTypesId": 6,
+      "citiesId": 6,
+      "description": "I have installed sinks, toilets, faucets, showers floor, drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 143,
+      "taskTypesId": 6,
+      "citiesId": 6,
+      "description": "I have installed sinks, toilets, faucets, showers floor, drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 144,
+      "taskTypesId": 6,
+      "citiesId": 6,
+      "description": "I have installed sinks, toilets, faucets, showers floor, drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 145,
+      "taskTypesId": 7,
+      "citiesId": 6,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 146,
+      "taskTypesId": 7,
+      "citiesId": 6,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 147,
+      "taskTypesId": 7,
+      "citiesId": 6,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 148,
       "taskTypesId": 8,
       "citiesId": 7,
       "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
       "experience": 3,
       "price": 60,
       "status":"active"
+    },
+    {
+      "userId": 149,
+      "taskTypesId": 8,
+      "citiesId": 7,
+      "description": "Whether you need someone to pick up groceries, do your holiday gift shipping, pick up something from a store across town, or to do research for an important purchase, I’m here to help with any of your shopping needs!",
+      "experience": 3,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 150,
+      "taskTypesId": 1,
+      "citiesId": 7,
+      "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+      "experience": 4,
+      "price": 70,
+      "status":"active"
+    },
+    {
+      "userId": 151,
+      "taskTypesId": 1,
+      "citiesId": 7,
+      "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+      "experience": 4,
+      "price": 70,
+      "status":"active"
+    },
+    {
+      "userId": 152,
+      "taskTypesId": 1,
+      "citiesId": 7,
+      "description": "Lot of experience moving full time. If something requires 2 people to lift please hire a 2nd Tasker or provide help. I'm strong & careful with people's belongings and have dollies.",
+      "experience": 4,
+      "price": 70,
+      "status":"active"
+    },
+    {
+      "userId": 153,
+      "taskTypesId": 2,
+      "citiesId": 7,
+      "description": "Hello I am good at putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 154,
+      "taskTypesId": 2,
+      "citiesId": 7,
+      "description": "Hello I am good at putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 155,
+      "taskTypesId": 2,
+      "citiesId": 7,
+      "description": "Hello I am good at putting together everything imaginable. From luxury furniture pieces to IKEA wardrobes and more. I come prepared to work with my own tools. Your job will be completed professionally in a clean timely manner.",
+      "experience": 6,
+      "price": 60,
+      "status":"active"
+    },
+    {
+      "userId": 156,
+      "taskTypesId": 3,
+      "citiesId": 7,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 157,
+      "taskTypesId": 3,
+      "citiesId": 7,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 158,
+      "taskTypesId": 3,
+      "citiesId": 7,
+      "description": "I can clean homes and offices. I can also wash dishes and do laundry. Im fully vaccinated and will be wearing a mask and gloves as well.",
+      "experience": 2,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 159,
+      "taskTypesId": 4,
+      "citiesId": 7,
+      "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 160,
+      "taskTypesId": 4,
+      "citiesId": 7,
+      "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 161,
+      "taskTypesId": 4,
+      "citiesId": 7,
+      "description": "I have tackled many painting projects. I’m efficient and detail oriented and assure the job is complete to your satisfaction. I also do Peel and Stick Wallpaper!",
+      "experience": 4,
+      "price": 100,
+      "status":"active"
+    },
+    {
+      "userId": 162,
+      "taskTypesId": 5,
+      "citiesId": 7,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 163,
+      "taskTypesId": 5,
+      "citiesId": 7,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 164,
+      "taskTypesId": 5,
+      "citiesId": 7,
+      "description": "I am a full time electrician. Professional quality and great attitude. I have all the experience knowledge and tools to get most jobs done at a incredibly competitive rate.",
+      "experience": 6,
+      "price": 150,
+      "status":"active"
+    },
+    {
+      "userId": 165,
+      "taskTypesId": 6,
+      "citiesId": 7,
+      "description": "I have installed sinks, toilets, faucets, showers floor, drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 166,
+      "taskTypesId": 6,
+      "citiesId": 7,
+      "description": "I have installed sinks, toilets, faucets, showers floor, drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 167,
+      "taskTypesId": 6,
+      "citiesId": 7,
+      "description": "I have installed sinks, toilets, faucets, showers floor, drain pipes, PEX pipes, dug trenches for outdoor jacuzzi, and worked with cast iron piping, and Commercial buildings.",
+      "experience": 4,
+      "price": 160,
+      "status":"active"
+    },
+    {
+      "userId": 168,
+      "taskTypesId": 7,
+      "citiesId": 7,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
+    },
+    {
+      "userId": 22,
+      "taskTypesId": 7,
+      "citiesId": 7,
+      "description": "I have experience in delivering and I will deliver your items on time and in a perfect condition.",
+      "experience": 2,
+      "price": 40,
+      "status":"active"
     }
-  ]
+]
