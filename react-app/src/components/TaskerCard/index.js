@@ -11,7 +11,7 @@ const TaskerCard = ({name,image,description,price,experience}) => {
             </div>
             <div className='userDetails_div'>
                 <div>
-                    <strong>Username: </strong>
+                    <strong>Name: </strong>
                     <span>{name}</span>
                 </div>
                 <div>
