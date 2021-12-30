@@ -6,6 +6,7 @@ import {statusCompletedTasker} from '../../store/task';
 import {useParams} from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import './TaskerJobs.css';
+import {clearTasks} from '../../store/task';
 
 function TaskerJobs() {
 
@@ -16,6 +17,7 @@ function TaskerJobs() {
     let today = new Date()
 
     useEffect(()=>{
+        dispatch(clearTasks())
         dispatch(getTasksOnTaskerID(taskerId))
     },[dispatch,taskerId])
 

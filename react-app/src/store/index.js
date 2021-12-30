@@ -4,14 +4,16 @@ import session from './session';
 import taskTypes from './tasktypes';
 import cities from './cities';
 import taskers from './tasker';
-import tasks from './task'
+import tasks from './task';
+import taskerList from './taskerList'
 
 const rootReducer = combineReducers({
   session,
   taskTypes,
   cities,
   taskers,
-  tasks
+  tasks,
+  taskerList
 });
 
 
