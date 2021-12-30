@@ -6,6 +6,7 @@ import {useParams} from 'react-router-dom';
 import {deleteTaskUser} from '../../store/task';
 import { Redirect } from 'react-router-dom';
 import './MyTasks.css'
+import {clearTasks} from '../../store/task';
 
 function MyTasks() {
 
@@ -16,6 +17,7 @@ function MyTasks() {
     let today = new Date();
 
     useEffect(()=>{
+        dispatch(clearTasks())
         dispatch(getTasksOnUserID(userId))
     },[dispatch,userId])
 
@@ -31,7 +33,9 @@ function MyTasks() {
     }
     if (tasks[0] === "Not Found"){
         return (
-            <h1>No tasks found</h1>
+            <div className='taskList'>
+                <h1>No tasks found</h1>
+            </div>
         )
     }
     return (

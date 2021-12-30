@@ -40,7 +40,9 @@ function TaskerJobs() {
     }
     if (tasks[0] === "Not Found"){
         return (
-            <h1>No jobs found</h1>
+            <div className='taskerJobList'>
+                <h1>No jobs found</h1>
+            </div>
         )
     }
     return (
