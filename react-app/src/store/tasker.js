@@ -1,6 +1,5 @@
 const ADD_TASKER = 'tasker/ADD_TASKER';
 const SEARCH_TASKER_ON_USERID = 'tasker/SEARCH_TASKER_ON_USERID'
-const SEARCH_AVAILABLE_TASKERS = 'taskers/SEARCH_AVAILABLE_TASKERS'
 const GET_ONE_TASKER = 'tasker/GET_ONETASKER'
 const EDIT_TASKER = 'tasker/EDIT_TASKER'
 const DELETE_TASKER = 'tasker/DELETE_TASKER'
@@ -16,10 +15,6 @@ const searchTaskerOnUserId = payload => ({
     payload
 })
 
-const searchAvailableTaskers = payload => ({
-    type: SEARCH_AVAILABLE_TASKERS,
-    payload
-})
 
 const getOneTasker = payload => ({
     type: GET_ONE_TASKER,
@@ -75,16 +70,6 @@ export const searchOneTaskerOnUserId = (userId) => async(dispatch) => {
     return null
 }
 
-export const searchForTaskers = (cityId,taskTypeId,date,time) => async(dispatch) => {
-    const response = await fetch(`/api/taskers/filter?cityId=${cityId}&taskTypeId=${taskTypeId}&date=${date}&time=${time}`)
-    if (response.ok) {
-        const searchResults = await response.json();
-        dispatch(searchAvailableTaskers(searchResults))
-        return searchResults
-    }
-    return null
-}
-
 export const getOneTaskerByID = (taskerId) => async(dispatch) => {
     const response = await fetch(`/api/taskers/${taskerId}`)
     if (response.ok) {
@@ -136,25 +121,21 @@ export const deleteTasker = (taskerId) => async (dispatch) => {
 const taskerReducer = (state={}, action) => {
     switch(action.type){
         case ADD_TASKER:{
-            const newState = {...state, [action.payload.id]:action.payload}
+            const newState = {...state, [action.payload.user.id]:action.payload}
             return newState
         }
         case SEARCH_TASKER_ON_USERID: {
             const newState = action.payload
             return newState
         }
-        case SEARCH_AVAILABLE_TASKERS: {
-            const newState = action.payload
-            return newState
-        }
         case GET_ONE_TASKER: {
             const newState = {}
-            newState[action.payload.id] = action.payload
+            newState[action.payload.user.id] = action.payload
             return newState
         }
         case EDIT_TASKER: {
             const newState = {}
-            newState[action.payload.id] = action.payload
+            newState[action.payload.user.id] = action.payload
             return newState
         }
         case DELETE_TASKER : {

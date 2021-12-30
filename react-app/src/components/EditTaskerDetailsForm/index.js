@@ -14,7 +14,7 @@ const EditTaskerDetailsForm = () => {
     const sessionUser = useSelector(state=>state.session.user)
 
     const { taskerId }  = useParams();
-    const tasker = useSelector((state)=>state?.taskers[taskerId])
+    const tasker = useSelector((state)=>state?.taskers[sessionUser.id])
 
     const [taskName, setTaskName] = useState(tasker?.taskType?.id);
     const [description, setDescription] = useState(tasker?.description)

@@ -5,7 +5,7 @@ import {useHistory} from "react-router";
 import {get_cities} from "../../store/cities"
 import {get_taskTypes} from "../../store/tasktypes"
 import { addOneTask } from "../../store/task";
-import { searchForTaskers } from "../../store/tasker";
+import { searchForTaskers } from "../../store/taskerList";
 import ms from 'ms';
 import moment from 'moment';
 import './TaskDetailsForm.css'
@@ -17,7 +17,7 @@ const TaskDetailsForm = () => {
     const sessionUser = useSelector(state=>state.session.user)
     const cities = useSelector(state=>Object.values(state.cities))
     const taskTypes = useSelector(state=>Object.values(state.taskTypes))
-    const taskers = useSelector(state=>Object.values(state.taskers))
+    const taskerList = useSelector(state=>Object.values(state.taskerList))
     const { taskTypeId }  = useParams();
 
     const durationData = [
@@ -86,13 +86,13 @@ const TaskDetailsForm = () => {
     }
 
     const ChoosenTasker = () => {
-        const oneTasker = taskers.find((ele)=>+ele.id === +selectedTaskerId)
+        const oneTasker = taskerList.find((ele)=>+ele.id === +selectedTaskerId)
         return oneTasker.user.username
     }
 
     const ChoosenTaskerPhoto = () => {
-        const oneTasker = taskers.find((ele)=>+ele.id === +selectedTaskerId)
-        return oneTasker.user.profilePhotoURL
+        const oneTasker = taskerList.find((ele)=>+ele.id === +selectedTaskerId)
+        return oneTasker.user?.profilePhotoURL
     }
 
     const handleSubmitPhase1 = async(e) => {

@@ -5,6 +5,7 @@ const USER_DELETE_TASK = 'tasks/USER_DELETE_TASK';
 const TASKER_DELETE_TASK = 'tasks/TASKER_DELETE_TASK';
 const GET_TASKS_ON_TASKERID = 'tasks/GET_TASKS_ON_TASKERID';
 const STATUS_COMPLETED = 'tasks/STATUS_COMPLETED'
+const CLEAR = 'tasks/CLEAR'
 
 const addTask = payload => ({
     type:ADD_TASK,
@@ -39,6 +40,10 @@ const setStatusCompleted = payload => ({
 const getTasksTaskerID = payload => ({
     type:GET_TASKS_ON_TASKERID,
     payload
+})
+
+export const clearTasks = () => ({
+    type: CLEAR
 })
 
 export const addOneTask = (payload) => async(dispatch) => {
@@ -185,6 +190,9 @@ const taskReducer = (state={},action) =>{
         case GET_TASKS_ON_TASKERID:{
             const newState = action.payload
             return newState
+        }
+        case CLEAR:{
+            return {}
         }
         default:
             return state
