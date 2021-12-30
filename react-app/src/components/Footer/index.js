@@ -12,10 +12,10 @@ export default function Footer () {
   return (
     <footer>
       <div className="madeby">
-        <a target="_blank" href="https://github.com/ily123/oney" rel="noreferrer">
-          <i className="fab fa-github-square" />
+        <a target="_blank" href="https://github.com/suchimohan/helprz" rel="noreferrer">
+          <i className="fab fa-github-square" />Helperz
         </a>
-        Helperz was made by
+        was made by
       </div>
       <div className="contributors">
         {CONTRIBUTORS.map(person =>{
@@ -47,4 +47,3 @@ function PersonCard ({ person }) {
     </div>
   )
 }
-

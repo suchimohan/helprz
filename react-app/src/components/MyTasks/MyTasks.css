@@ -29,7 +29,7 @@
 }
 
 .taskListButton:hover {
-    cursor: pointer
+    cursor: pointer;
 }
 
 .taskListButton a{

@@ -258,8 +258,10 @@ const TaskDetailsForm = () => {
                         </div>
                         <div className="tasker_inform_div">
                             <strong>Choosen Tasker:</strong>
-                            <img className="tasker_image" src={ChoosenTaskerPhoto()} alt="" />
-                            <strong>{ChoosenTasker()}</strong>
+                            <div className="tasker_image_name_div">
+                                <img className="tasker_image" src={ChoosenTaskerPhoto()} alt="" />
+                                <strong>Name: {ChoosenTasker()}</strong>
+                            </div>
                         </div>
                         <div className="button_div">
                             <button className='submit-button' type='submit'>
