@@ -71,7 +71,7 @@ def filtered_taskers():
   task_date = date.fromisoformat(request.args.get('date'))
   task_time = time.fromisoformat(request.args.get('time'))
   task_date_time = datetime.combine(task_date,task_time)
-  ''' SQL Query to filter taskers///
+  ''' SQL Query to filter taskers/////
   select users.username, taskers.description, tasks."dateTime" from taskers
   left join tasks on tasks."taskerId" = taskers.id and tasks."dateTime" = '2021-12-29 8:00:00'
   join users on users.id = taskers."userId"
