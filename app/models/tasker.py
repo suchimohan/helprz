@@ -19,7 +19,7 @@ class Tasker(db.Model):
     user = db.relationship( "User", back_populates="tasker")
     taskType = db.relationship("TaskType", back_populates="taskers")
     city = db.relationship("City", back_populates="taskers")
-
+    reviews = db.relationship("Review", back_populates="tasker")
 
     tasks = db.relationship("Task", back_populates="tasker")
 

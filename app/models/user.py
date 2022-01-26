@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
 
     tasker = db.relationship( "Tasker", uselist=False, back_populates="user")
     tasks = db.relationship( "Task", back_populates="user")
-
+    reviews = db.relationship("Review", back_populates="user")
 
 
     @property
