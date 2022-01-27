@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { NavLink } from "react-router-dom";
 import { deleteReview } from "../../store/review";
+import "./Reviews.css"
 
 function MenuButton({taskerId, id}) {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ function MenuButton({taskerId, id}) {
     <>
       <button className="review-dot-dot" onClick={openMenu}>
         <div className="dotStyle">
-          <i className="fas fa-ellipsis-h "></i>
+          <i class="fas fa-chevron-circle-down"></i>
         </div>
       </button>
       {showMenu && (

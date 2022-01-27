@@ -42,9 +42,22 @@ export const getReviews = (taskerId) => async(dispatch) => {
     if(response.ok) {
       const newReview = await response.json();
       dispatch(addOneReview(newReview))
-      return newReview
+      return {review: newReview,
+        errors:[]
+    }
+  } else if (response.status < 500){
+    const data = await response.json();
+    if(data.errors){
+      return {
+        errors: data.errors
+      }
+    }
+  } else {
+    return {
+      errors: ['An error occurred. Please try again.']
     }
   }
+}
 
   export const deleteReview = (id) => async dispatch => {
     const response = await fetch(`/api/reviews/${id}/delete`, {
@@ -64,8 +77,23 @@ export const getReviews = (taskerId) => async(dispatch) => {
     if(response.ok) {
       const review = await response.json();
       dispatch(editReviewAction(review))
-      return review
-  }}
+      return { review : review,
+        errors: []
+      }
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return {
+                errors: data.errors
+            }
+        }
+      } else {
+        return {
+            errors: ['An error occurred. Please try again.']
+        }
+      }
+    }
+
 
   const reviewReducer = (state = {}, action) => {
     switch (action.type) {

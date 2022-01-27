@@ -69,7 +69,7 @@ const BecomeTaskerForm = () => {
                 <form onSubmit={handleSubmit} className='add-tasker'>
                     <div className="errors_div">
                         {errors.map((error, ind) => (
-                        <div key={ind} className='errorItem'>{error}</div>
+                        <div key={ind} className='errorItem'>{(error.split(':'))[1]}</div>
                         ))}
                     </div>
                     <div>

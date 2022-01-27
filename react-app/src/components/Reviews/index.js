@@ -33,7 +33,7 @@ console.log("index", reviews)
           <div className="review-container" key={review.id}>
             <div className="userIcon-username-date">
               <div className="review-padding">
-                <img src="review.user.profilePhotoURL" />
+                <img className='user_profile' src={review.user.profilePhotoURL} />
               </div>
               <div className="review-padding">
                 {review.user.username}
@@ -56,7 +56,7 @@ console.log("index", reviews)
                 }
               </div>
             </div>
-            <div>
+            <div className='contentdiv'>
               {review.content}
             </div>
           </div>

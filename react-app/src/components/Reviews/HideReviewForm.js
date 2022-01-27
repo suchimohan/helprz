@@ -4,6 +4,7 @@ import { useParams} from 'react-router-dom';
 import { getReviews } from '../../store/review';
 import Reviews from './index'
 import ReviewForm from './CreateReviewForm';
+import "./Reviews.css"
 
 
 function HideReviewForm(){

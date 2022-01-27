@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { useHistory } from 'react-router';
 import { getReviews } from '../../store/review';
 import { editOneReview } from '../../store/review';
-
+import "./Reviews.css"
 
 const EditReview = () => {
     const dispatch = useDispatch();
@@ -40,26 +40,17 @@ const EditReview = () => {
         }
     },[review])
 
-
-    useEffect(() => {
-        const validationErrors = [];
-        if(!rating) validationErrors.push("Rating is required")
-        if(rating > 5 || rating < 1) validationErrors.push("Rating must be between 1-5")
-        if(!content) validationErrors.push("Please write a review!")
-
-        setErrors(validationErrors)
-
-    },[content,rating])
-
-
   const handleSubmit = async(e) => {
     e.preventDefault();
     const editReview = {
       content,rating,taskerId,userId
     }
     let editedReview = await dispatch(editOneReview(editReview,id))
-    if(editedReview) {
+    if(editedReview.review) {
       history.push(`/taskerProfile/${taskerId}`)
+    }
+    if(editedReview.errors.length){
+      setErrors(editedReview.errors)
     }
   }
 
@@ -72,38 +63,34 @@ const EditReview = () => {
     return null
     } else {
   return (
-  <>
-    <div>
-      <div>Edit Review</div>
-    </div>
-    <form className="submit-review" onSubmit={handleSubmit}>
-          <label>
-              Rating
+  <div className='editReviewDiv'>
+      <h3>Edit Review</h3>
+    <form className="submitreviewform" onSubmit={handleSubmit}>
+          <label>Rating</label>
               <input
                 type="number"
                 value={rating}
                 onChange={(e) => setRating(e.target.value)}
+                min="1"
+                max="5"
               >
               </input>
-          </label>
-          <label>
-              Content
+          <label>Content </label>
               <input
                 type="text"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
               >
               </input>
-          </label>
           <ul className="error">
-          {errors.map((error) => <li key={error}>{error}</li>)}
+          {errors.map((error,idx) => <li key={idx}>{(error.split(':'))[1]}</li>)}
           </ul>
-          <span className="submit-review">
-          <button className="submit-cancel-review-button" type="submit" disabled={errors.length>0} >Submit Review</button>
-          </span>
-          <button className="submit-cancel-review-button" type="button" onClick={handleCancelReviewFormClick}>Cancel</button>
+          <div className="reviewButtons">
+            <button className="submit-cancel-review-button" type="submit" >Submit Review</button>
+            <button className="submit-cancel-review-button" type="button" onClick={handleCancelReviewFormClick}>Cancel</button>
+          </div>
         </form>
-    </>
+    </div>
   )
   }
 }

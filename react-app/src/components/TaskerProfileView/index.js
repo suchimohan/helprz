@@ -9,11 +9,8 @@ import {getReviews} from '../../store/review'
 function TaskerProfileView() {
 
     const tasker = useSelector(state=>Object.values(state.taskers))
-    // const sessionUser = useSelector(state=>state.session.user)
     const { taskerId }  = useParams();
-    // const {userId} = useParams();
     const dispatch = useDispatch();
-    // const history = useHistory();
 
     useEffect(()=>{
         dispatch(getOneTaskerByID(taskerId))
@@ -25,38 +22,40 @@ function TaskerProfileView() {
         return null;
     }
     return (
-        <div className='taskerview'>
-            <div className='taskerprofile'>
+        <div className='tasker_profile_view'>
+            <div className='taskerview_div'>
                 <div>
-                    <strong>Name:</strong>
-                    <span>{tasker[0].user.username}</span>
+                    <img className="taskerpicture" src={tasker[0].user.profilePhotoURL} alt=""/>
                 </div>
-                <div>
-                    <strong>City:</strong>
-                    <span>{tasker[0].city.name}</span>
-                </div>
-                <div>
-                    <img src="tasker[0].user.profilePhotoURL" />
-                </div>
-                <div>
-                    <strong>Task Type:</strong>
-                    <span>{tasker[0].taskType.name}</span>
-                </div>
-                <div>
-                    <strong>Experience:</strong>
-                    <span>{tasker[0].experience} yrs</span>
-                </div>
-                <div>
-                    <strong>Description:</strong>
-                    <span>{tasker[0].description}</span>
-                </div>
-                <div>
-                    <strong>Price:</strong>
-                    <span>${tasker[0].price}</span>
+                <div className='taskerView_details'>
+                    <div>
+                        <strong>Name: </strong>
+                        <span>{tasker[0].user.username}</span>
+                    </div>
+                    <div>
+                        <strong>City: </strong>
+                        <span>{tasker[0].city.name}</span>
+                    </div>
+                    <div>
+                        <strong>Task Type: </strong>
+                        <span>{tasker[0].taskType.name}</span>
+                    </div>
+                    <div>
+                        <strong>Experience: </strong>
+                        <span>{tasker[0].experience} yrs</span>
+                    </div>
+                    <div>
+                        <strong>Description: </strong>
+                        <span>{tasker[0].description}</span>
+                    </div>
+                    <div>
+                        <strong>Price: </strong>
+                        <span>${tasker[0].price}</span>
+                    </div>
                 </div>
             </div>
             <div className='reviewsAndDescriptionsDiv'>
-                <div className='reviewsDiv'>
+                <div>
                     <HideReviewForm />
                 </div>
             </div>

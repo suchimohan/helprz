@@ -3,7 +3,7 @@ import { useDispatch} from 'react-redux';
 import { createOneReview } from "../../store/review";
 import { useSelector } from "react-redux";
 import {useParams} from 'react-router-dom';
-
+import "./Reviews.css"
 
 const ReviewForm = ({hideForm, hideButton}) => {
 
@@ -18,23 +18,17 @@ const ReviewForm = ({hideForm, hideButton}) => {
 
   const userId = sessionUser.id
 
-  useEffect(() => {
-    const validationErrors = [];
-    if(!rating) validationErrors.push("Rating is required")
-    if(rating > 5 || rating < 1) validationErrors.push("Rating must be between 1-5")
-    if(!content) validationErrors.push("Please write a review!")
-    setErrors(validationErrors)
-  },[content,rating])
-
-
   const handleSubmit = async(e) => {
     e.preventDefault();
     const newReview = {
       content,rating,taskerId,userId
     }
     let createdReview = await dispatch(createOneReview(newReview))
-    if (createdReview) {
+    if (createdReview.review) {
       hideForm();
+    }
+    if(createdReview.errors.length){
+      setErrors(createdReview.errors)
     }
   }
 
@@ -44,42 +38,34 @@ const ReviewForm = ({hideForm, hideButton}) => {
     hideButton();
   }
 
-
   return (
     <>
-        <form className="submit-review" onSubmit={handleSubmit}>
-          <label>
-              <input
-                type="number"
-                placeholder="rating"
-                value={rating}
-                onChange={(e) => setRating(e.target.value)}
-              >
-              </input>
-          </label>
-          <label>
-              <input
-                placeholder="content"
-                type="text"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-              >
-              </input>
-          </label>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="number"
+            placeholder="rating"
+            min="1"
+            max="5"
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+          />
+          <input
+            placeholder="content"
+            type="text"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
           <ul className="error">
-          {errors.map((error) => <li key={error}>{error}</li>)}
+          {errors.map((error,idx) => <li key={idx}>{(error.split(':'))[1]}</li>)}
           </ul>
-          <span className="submit-review">
-          <button className="submit-cancel-review-button" type="submit" disabled={errors.length>0} >Submit Review</button>
-          </span>
-          <span>
-          <button className="submit-cancel-review-button" type="button" onClick={handleCancelReviewFormClick}>Cancel</button>
-          </span>
+          <div className="reviewButtons">
+            <button className="submit-cancel-review-button" type="submit">Submit Review</button>
+            <button className="submit-cancel-review-button" type="button" onClick={handleCancelReviewFormClick}>Cancel</button>
+          </div>
         </form>
         </>
       )
-
-    }
+  }
 
 
     export default ReviewForm
