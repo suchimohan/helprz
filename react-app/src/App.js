@@ -16,6 +16,8 @@ import EditTaskerDetailsForm from './components/EditTaskerDetailsForm';
 import MyTasks from './components/MyTasks'
 import EditBookingForm from './components/EditBookingForm';
 import TaskerJobs from './components/TaskerJobs';
+import TaskerProfileView from './components/TaskerProfileView';
+import EditReview from './components/Reviews/EditReview';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +53,9 @@ function App() {
         <ProtectedRoute path='/taskers/:taskerId/tasks' exact={true} >
           <TaskerJobs/>
         </ProtectedRoute>
+        <ProtectedRoute path='/taskerprofile/:taskerId' exact={true} >
+          <TaskerProfileView />
+        </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/tasks' exact={true} >
           <MyTasks  />
         </ProtectedRoute>
@@ -65,6 +70,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/new-tasker' exact={true}>
           <BecomeTaskerForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/:taskerId/reviews/:id/edit' exact={true}>
+          <EditReview />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <SplashPage />

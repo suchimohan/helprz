@@ -75,6 +75,11 @@ function MyTasks() {
                             <span>{taskInfo.tasker.user?.username}</span>
                         </div>
                         <div>
+                            <NavLink to={`/taskerprofile/${taskInfo.tasker.id}`} exact={true} activeClassName='active'>
+                                    View/Add Reviews and Ratings
+                            </NavLink>
+                        </div>
+                        <div>
                             <strong>Tasker Email:</strong>
                             <span>{taskInfo.tasker.user?.email}</span>
                         </div>

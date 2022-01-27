@@ -1,0 +1,152 @@
+.review-dot-dot {
+    background-color: transparent;
+    border: none;
+}
+
+.review-dropdown {
+  position: absolute;
+  flex-direction: column;
+}
+
+.fa-edit, .fa-trash {
+  color: white;
+}
+
+.fa-trash, .fa-chevron-circle-down {
+  font-size: 18px;
+}
+
+.review-dropdown {
+    position: absolute;
+    background-color: #438e29;
+    width: min-content;
+    overflow: auto;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 20px !important;
+    display: flex;
+    align-items: flex-end;
+}
+
+.delete-review-button {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+}
+
+.fa-trash-alt{
+  font-size: 18px;
+  padding-right: 5px;
+}
+
+  .add-review-button {
+    background-color: #438e29;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 10px;
+    color: white;
+  }
+
+  .review-container {
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0px
+  }
+
+  .userIcon-username-date {
+    display:flex;
+    align-items: center;
+  }
+
+  .review-padding {
+    padding-right: 10px;
+  }
+
+  .star-dot-dot {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between !important;
+    width:300px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .all-review-container {
+    padding-left: 30px;
+    padding-top: 30px;
+  }
+
+  .error {
+    padding-bottom: 5px;
+  }
+
+  .error li{
+  padding: 10px 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  color:crimson
+  }
+
+  .submit-cancel-review-button {
+    background-color: #438e29;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 13px;
+    color: white;
+  }
+
+  .user_profile{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.contentdiv{
+  margin: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.reviewButtons{
+  display: flex;
+  flex-direction: row;
+  gap: 10px
+}
+
+.editReviewDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin : 40px;
+
+}
+
+.submitreviewform{
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 5px;
+
+}
+
+@media only screen and (max-width: 800px) {
+  .review-container {
+    width: 300px;
+  }
+  .all-review-container {
+    padding-left: 10px;
+  }
+
+}

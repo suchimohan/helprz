@@ -5,7 +5,8 @@ import taskTypes from './tasktypes';
 import cities from './cities';
 import taskers from './tasker';
 import tasks from './task';
-import taskerList from './taskerList'
+import taskerList from './taskerList';
+import reviews from './review'
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   cities,
   taskers,
   tasks,
-  taskerList
+  taskerList,
+  reviews
 });
 
 
