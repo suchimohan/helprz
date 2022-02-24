@@ -32,12 +32,12 @@ def get_taskers(id):
 
 @tasker_routes.route('/new', methods=['POST'])
 def add_new_tasker():
-    currentUser = current_user.to_dict()
+    current_user_id = current_user.to_dict()['id']
     form = NewTaskerForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         tasker = Tasker(
-            userId=currentUser['id'],
+            userId=current_user_id,
             taskTypesId=int(form.data['taskName']),
             citiesId=int(form.data['city']),
             description=form.data['description'],
@@ -65,8 +65,7 @@ def search_tasker(userId):
 @tasker_routes.route('/filter', methods=['GET'])
 def filtered_taskers():
     # filter_taskers filter only active Taskers who dont have any overlapping Task
-    current_user = current_user.to_dict()
-    current_user_id = current_user['id']
+    current_user_id = current_user.to_dict()['id']
     city_id = request.args.get('cityId')
     task_type_id = request.args.get('taskTypeId')
     task_date = date.fromisoformat(request.args.get('date'))
