@@ -1,0 +1,76 @@
+Table users {
+  id integer [pk]
+  name varchar
+  email varchar
+  hashedPassword varchar
+  profilePhotoURL varchar
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Table taskTypes {
+  id integer [pk]
+  name varchar
+  taskImageURL varchar
+  avgPrice integer
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Table cities {
+  id integer [pk]
+  name varchar
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Table reviews {
+  id integer [pk]
+ taskerId integer
+  userId integer
+  content text
+  rating integer
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Ref: reviews.userId > users.id
+Ref: reviews.taskerId > taskers.id
+
+
+Table taskers {
+  id integer [pk]
+  userId integer
+  taskTypesId integer
+  citiesId integer
+  description text
+  experience integer
+  price decimal
+  status varchar
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+
+Ref: taskers.userId - users.id
+Ref: taskers.citiesId > cities.id
+Ref: taskers.taskTypesId > taskTypes.id
+
+Table tasks {
+  id integer [pk]
+  requestUserId integer
+  taskerId integer
+  citiesId integer
+  taskTypesId integer
+  dateTime datetime
+  taskDescription text
+  duration integer
+  status varchar
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Ref: tasks.requestUserId > users.id
+Ref: tasks.taskerId > taskers.id
+Ref: tasks.citiesId > cities.id
+Ref: tasks.taskTypesId > taskTypes.id
